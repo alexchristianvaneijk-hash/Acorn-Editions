@@ -19,8 +19,8 @@
     }
     nav {
       background: #444;
-      text-align: center;
       padding: 0.5rem;
+      text-align: center;
     }
     nav a {
       color: white;
@@ -30,17 +30,14 @@
     nav a:hover {
       text-decoration: underline;
     }
-
-    /* CHANGED - Added padding for white space on sides */
     .library {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* slightly smaller cards */
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* CHANGED: smaller book width */
       gap: 1.5rem;
       padding: 2rem;
-      max-width: 1000px; /* narrower max width for more side space */
+      max-width: 1000px; /* CHANGED: narrower max width for white space */
       margin: auto;
     }
-
     .book {
       background: white;
       border-radius: 8px;
@@ -74,28 +71,42 @@
       text-decoration: none;
       border-radius: 4px;
       transition: background 0.2s;
-      margin-right: 0.5rem;
     }
     .download:hover {
       background: #005fa3;
     }
-
-    /* CHANGED - More button styled as book card */
-    .more-card {
-      background: #e0e0e0;
-      border-radius: 8px;
+    /* CHANGED: More button style to match book size */
+    .more-tile {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      background: #ddd;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 1rem;
-      color: #555;
       text-decoration: none;
+      color: #555;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: background 0.2s;
     }
-    .more-card:hover {
-      background: #d5d5d5;
+    .more-tile:hover {
+      background: #ccc;
+    }
+    /* CHANGED: Section title style (#2) */
+    h2 {
+      font-size: 1.8rem;
+      margin: 2rem auto 1rem auto;
+      max-width: 1000px; /* align with library width */
+      font-weight: 700;
+      color: #222;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: #0077cc;
+      margin-top: 0.3rem;
     }
   </style>
 </head>
@@ -111,46 +122,42 @@
     <a href="short-stories.html">Short Stories</a>
   </nav>
 
-  <!-- Novels -->
-  <section>
-    <h2>Novels</h2>
-    <div class="library">
+  <main>
+    <h2>Novels</h2> <!-- CHANGED: now styled with accent bar -->
+    <section class="library">
       <div class="book">
-        <img src="covers/novel1.png" alt="Novel 1">
+        <img src="Covers/[Cover] Novel1.png" alt="Novel 1">
         <div class="book-content">
-          <div class="book-title">Novel One</div>
-          <div class="book-author">Author Name</div>
-          <a href="epubs/novel1.epub" class="download">EPUB</a>
-          <a href="pdfs/novel1.pdf" class="download">PDF</a>
+          <div class="book-title">Novel 1</div>
+          <div class="book-author">Author 1</div>
+          <a href="epubs/Novel1.epub" class="download">EPUB</a>
+          <a href="pdfs/Novel1.pdf" class="download">PDF</a>
         </div>
       </div>
       <div class="book">
-        <img src="covers/novel2.png" alt="Novel 2">
+        <img src="Covers/[Cover] Novel2.png" alt="Novel 2">
         <div class="book-content">
-          <div class="book-title">Novel Two</div>
-          <div class="book-author">Author Name</div>
-          <a href="epubs/novel2.epub" class="download">EPUB</a>
-          <a href="pdfs/novel2.pdf" class="download">PDF</a>
+          <div class="book-title">Novel 2</div>
+          <div class="book-author">Author 2</div>
+          <a href="epubs/Novel2.epub" class="download">EPUB</a>
+          <a href="pdfs/Novel2.pdf" class="download">PDF</a>
         </div>
       </div>
       <div class="book">
-        <img src="covers/novel3.png" alt="Novel 3">
+        <img src="Covers/[Cover] Novel3.png" alt="Novel 3">
         <div class="book-content">
-          <div class="book-title">Novel Three</div>
-          <div class="book-author">Author Name</div>
-          <a href="epubs/novel3.epub" class="download">EPUB</a>
-          <a href="pdfs/novel3.pdf" class="download">PDF</a>
+          <div class="book-title">Novel 3</div>
+          <div class="book-author">Author 3</div>
+          <a href="epubs/Novel3.epub" class="download">EPUB</a>
+          <a href="pdfs/Novel3.pdf" class="download">PDF</a>
         </div>
       </div>
+      <!-- CHANGED: More button as a full tile -->
+      <a href="novels.html" class="more-tile">More Novels →</a>
+    </section>
 
-      <a href="novels.html" class="more-card">More →</a>
-    </div>
-  </section>
-
-  <!-- Short Stories -->
-  <section>
-    <h2>Short Stories & Novellas</h2>
-    <div class="library">
+    <h2>Short Stories</h2> <!-- CHANGED: now styled with accent bar -->
+    <section class="library">
       <div class="book">
         <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of her Peers">
         <div class="book-content">
@@ -170,7 +177,7 @@
         </div>
       </div>
       <div class="book">
-        <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+        <img src="covers/chekhov-the-kiss" alt="The Kiss">
         <div class="book-content">
           <div class="book-title">The Kiss</div>
           <div class="book-author">Anton Chekhov</div>
@@ -178,10 +185,9 @@
           <a href="pdfs/chekhov-the-kiss.pdf" class="download">PDF</a>
         </div>
       </div>
-
-      <a href="short-stories.html" class="more-card">More →</a>
-    </div>
-  </section>
-
+      <!-- CHANGED: More button as a full tile -->
+      <a href="short-stories.html" class="more-tile">More Short Stories →</a>
+    </section>
+  </main>
 </body>
 </html>
