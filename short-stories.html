@@ -1,1 +1,199 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acorn Editions</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .search-container {
+      max-width: 400px;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .library {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .book {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .book img {
+      width: 100%;
+      height: auto;
+    }
+    .book-content {
+      padding: 1rem;
+      flex: 1;
+    }
+    .book-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .book-author {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .download-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .download {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.2s;
+      font-size: 0.9rem;
+    }
+    .epub-btn {
+      background: #0077cc;
+    }
+    .epub-btn:hover {
+      background: #005fa3;
+    }
+    .pdf-btn {
+      background: #d9534f;
+    }
+    .pdf-btn:hover {
+      background: #b52b27;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Acorn Editions</h1>
+    <p>Literary classics, lovingly reprinted and shared for free.</p>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search by title or author...">
+  </div>
+
+  <section class="library" id="library">
+    <div class="book">
+      <img src="Covers/[Cover] Glaspell - A Jury of her Peers.png" alt="A Jury of her Peers">
+      <div class="book-content">
+        <div class="book-title">A Jury of her Peers</div>
+        <div class="book-author">Susan Glaspell</div>
+        <div class="download-buttons">
+          <a href="epubs/Glaspell - A Jury of Her Peers.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="book">
+      <img src="Covers/[Cover] Hardy - The Three Strangers.png" alt="The Three Strangers">
+      <div class="book-content">
+        <div class="book-title">The Three Strangers</div>
+        <div class="book-author">Thomas Hardy</div>
+        <div class="download-buttons">
+          <a href="epubs/Hardy - The Three Strangers.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/hardy-the-three-strangers.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="book">
+      <img src="Covers/[Cover] Storm - Immensee.png" alt="Immensee">
+      <div class="book-content">
+        <div class="book-title">Immensee</div>
+        <div class="book-author">Theodor Storm</div>
+        <div class="download-buttons">
+          <a href="epubs/Storm - Immensee.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/storm-immensee.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+        <div class="book">
+      <img src="Covers/balzac-the-unknown-masterpiece.png" alt="The Unknown Masterpiece">
+      <div class="book-content">
+        <div class="book-title">The Unknown Masterpiece</div>
+        <div class="book-author">Honore de Balzac</div>
+        <div class="download-buttons">
+          <a href="epubs/balzac-the-unknown-masterpiece.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/balzac-the-unknown-masterpiece.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+        <div class="book">
+      <img src="Covers/chekhov-the-kiss.png" alt="The Kiss">
+      <div class="book-content">
+        <div class="book-title">The Kiss</div>
+        <div class="book-author">Anton Chekhov</div>
+        <div class="download-buttons">
+          <a href="epubs/chekhov-the-kiss.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/chekhov-the-kiss.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="book">
+      <img src="Covers/maupassant-two-friends.png" alt="Two Friends">
+      <div class="book-content">
+        <div class="book-title">Two Friends</div>
+        <div class="book-author">Guy de Maupassant</div>
+        <div class="download-buttons">
+          <a href="epubs/maupassant-two-friends.epub" class="download epub-btn">Download EPUB</a>
+          <a href="pdfs/maupassant-two-friends.pdf" class="download pdf-btn">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+    
+  </section>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      books.forEach(book => {
+        const title = book.querySelector('.book-title').textContent.toLowerCase();
+        const author = book.querySelector('.book-author').textContent.toLowerCase();
+        if (title.includes(query) || author.includes(query)) {
+          book.style.display = '';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
