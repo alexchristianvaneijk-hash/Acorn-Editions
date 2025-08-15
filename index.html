@@ -14,48 +14,33 @@
     header {
       background-color: #333;
       color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    nav {
+      background: #444;
+      text-align: center;
+      padding: 0.5rem;
     }
     nav a {
       color: white;
+      margin: 0 1rem;
       text-decoration: none;
-      margin-left: 1rem;
     }
     nav a:hover {
       text-decoration: underline;
     }
-    h2 {
-      margin: 0;
-    }
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-      margin-top: 2rem;
-    }
-    .more-btn {
-      background: #0077cc;
-      color: white;
-      text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-    }
-    .more-btn:hover {
-      background: #005fa3;
-    }
+
+    /* CHANGED - Added padding for white space on sides */
     .library {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* slightly smaller cards */
       gap: 1.5rem;
       padding: 2rem;
-      max-width: 1200px;
+      max-width: 1000px; /* narrower max width for more side space */
       margin: auto;
     }
+
     .book {
       background: white;
       border-radius: 8px;
@@ -81,129 +66,122 @@
       font-size: 0.9rem;
       margin-bottom: 1rem;
     }
-    .download-buttons {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
     .download {
       display: inline-block;
       padding: 0.5rem 1rem;
+      background: #0077cc;
       color: white;
       text-decoration: none;
       border-radius: 4px;
       transition: background 0.2s;
-      font-size: 0.9rem;
+      margin-right: 0.5rem;
     }
-    .epub-btn {
-      background: #0077cc;
-    }
-    .epub-btn:hover {
+    .download:hover {
       background: #005fa3;
     }
-    .pdf-btn {
-      background: #d9534f;
+
+    /* CHANGED - More button styled as book card */
+    .more-card {
+      background: #e0e0e0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #555;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background 0.2s;
     }
-    .pdf-btn:hover {
-      background: #b52b27;
+    .more-card:hover {
+      background: #d5d5d5;
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
-    <h2>Acorn Editions</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="novels.html">Novels</a>
-      <a href="short-stories.html">Short Stories</a>
-    </nav>
+    <h1>Acorn Editions</h1>
+    <p>Literary classics, lovingly reprinted and shared for free.</p>
   </header>
 
-<!-- SHORT STORIES SECTION -->
-  <div class="section-header">
-    <h2>Short Stories</h2>
-    <a class="more-btn" href="short-stories.html">More Short Stories →</a>
-  </div>
-  <section class="library">
-    <div class="book">
-      <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-      <div class="book-content">
-        <div class="book-title">The Kiss</div>
-        <div class="book-author">Anton Chekhov D</div>
-        <div class="download-buttons">
-          <a href="epubs/chekhov-the-kiss.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/chekhov-the-kiss.pdf" class="download pdf-btn">PDF</a>
-        </div>
-      </div>
-    </div>
-    <div class="book">
-      <img src="covers/glaspell-a-jury-of-her-peers" alt="A Jury of her Peers">
-      <div class="book-content">
-        <div class="book-title">A Jury of her Peers</div>
-        <div class="book-author">Susan Glaspell</div>
-        <div class="download-buttons">
-          <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download pdf-btn">PDF</a>
-        </div>
-      </div>
-    </div>
-    <div class="book">
-      <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
-      <div class="book-content">
-        <div class="book-title">The Three Strangers</div>
-        <div class="book-author">Author F</div>
-        <div class="download-buttons">
-          <a href="epubs/hardy-the-three-strangers.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/hardy-the-three-strangers.pdf" class="download pdf-btn">PDF</a>
-        </div>
-      </div>
-    </div>
-    </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="novels.html">Novels</a>
+    <a href="short-stories.html">Short Stories</a>
+  </nav>
 
-  <!-- NOVELS SECTION -->
-  <div class="section-header">
-    <h2>Novels
-      <a class="more-btn" href="novels.html">More Novels →</a>
-    </h2>
-  </div>
-  <section class="library">
-    <div class="book">
-      <img src="covers/novel1.jpg" alt="Novel One">
-      <div class="book-content">
-        <div class="book-title">Novel One</div>
-        <div class="book-author">Author A</div>
-        <div class="download-buttons">
-          <a href="epubs/novel1.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/novel1.pdf" class="download pdf-btn">PDF</a>
+  <!-- Novels -->
+  <section>
+    <h2>Novels</h2>
+    <div class="library">
+      <div class="book">
+        <img src="covers/novel1.png" alt="Novel 1">
+        <div class="book-content">
+          <div class="book-title">Novel One</div>
+          <div class="book-author">Author Name</div>
+          <a href="epubs/novel1.epub" class="download">EPUB</a>
+          <a href="pdfs/novel1.pdf" class="download">PDF</a>
         </div>
       </div>
-    </div>
-    <div class="book">
-      <img src="covers/novel2.jpg" alt="Novel Two">
-      <div class="book-content">
-        <div class="book-title">Novel Two</div>
-        <div class="book-author">Author B</div>
-        <div class="download-buttons">
-          <a href="epubs/novel2.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/novel2.pdf" class="download pdf-btn">PDF</a>
+      <div class="book">
+        <img src="covers/novel2.png" alt="Novel 2">
+        <div class="book-content">
+          <div class="book-title">Novel Two</div>
+          <div class="book-author">Author Name</div>
+          <a href="epubs/novel2.epub" class="download">EPUB</a>
+          <a href="pdfs/novel2.pdf" class="download">PDF</a>
         </div>
       </div>
-    </div>
-    <div class="book">
-      <img src="covers/novel3.jpg" alt="Novel Three">
-      <div class="book-content">
-        <div class="book-title">Novel Three</div>
-        <div class="book-author">Author C</div>
-        <div class="download-buttons">
-          <a href="epubs/novel3.epub" class="download epub-btn">EPUB</a>
-          <a href="pdfs/novel3.pdf" class="download pdf-btn">PDF</a>
+      <div class="book">
+        <img src="covers/novel3.png" alt="Novel 3">
+        <div class="book-content">
+          <div class="book-title">Novel Three</div>
+          <div class="book-author">Author Name</div>
+          <a href="epubs/novel3.epub" class="download">EPUB</a>
+          <a href="pdfs/novel3.pdf" class="download">PDF</a>
         </div>
       </div>
+
+      <a href="novels.html" class="more-card">More →</a>
     </div>
   </section>
 
+  <!-- Short Stories -->
+  <section>
+    <h2>Short Stories & Novellas</h2>
+    <div class="library">
+      <div class="book">
+        <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of her Peers">
+        <div class="book-content">
+          <div class="book-title">A Jury of her Peers</div>
+          <div class="book-author">Susan Glaspell</div>
+          <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download">EPUB</a>
+          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download">PDF</a>
+        </div>
+      </div>
+      <div class="book">
+        <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
+        <div class="book-content">
+          <div class="book-title">The Three Strangers</div>
+          <div class="book-author">Thomas Hardy</div>
+          <a href="epubs/hardy-the-three-strangers.epub" class="download">EPUB</a>
+          <a href="pdfs/hardy-the-three-strangers.pdf" class="download">PDF</a>
+        </div>
+      </div>
+      <div class="book">
+        <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+        <div class="book-content">
+          <div class="book-title">The Kiss</div>
+          <div class="book-author">Anton Chekhov</div>
+          <a href="epubs/chekhov-the-kiss.epub" class="download">EPUB</a>
+          <a href="pdfs/chekhov-the-kiss.pdf" class="download">PDF</a>
+        </div>
+      </div>
+
+      <a href="short-stories.html" class="more-card">More →</a>
+    </div>
+  </section>
 
 </body>
 </html>
