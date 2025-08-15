@@ -14,20 +14,39 @@
     header {
       background-color: #333;
       color: white;
-      text-align: center;
-      padding: 1.5rem;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .search-container {
-      max-width: 400px;
-      margin: 1rem auto;
-      padding: 0 1rem;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
     }
-    .search-bar {
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h2 {
+      margin: 0;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      margin-top: 2rem;
+    }
+    .more-btn {
+      background: #0077cc;
+      color: white;
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
       border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .more-btn:hover {
+      background: #005fa3;
     }
     .library {
       display: grid;
@@ -91,107 +110,99 @@
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <h1>Acorn Editions</h1>
-    <p>Literary classics, lovingly reprinted and shared for free.</p>
+    <h2>Acorn Editions</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="novels.html">Novels</a>
+      <a href="short-stories.html">Short Stories</a>
+    </nav>
   </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Search by title or author...">
+<!-- SHORT STORIES SECTION -->
+  <div class="section-header">
+    <h2>Short Stories</h2>
+    <a class="more-btn" href="short-stories.html">More Short Stories →</a>
   </div>
-
-  <section class="library" id="library">
+  <section class="library">
     <div class="book">
-      <img src="Covers/[Cover] Glaspell - A Jury of her Peers.png" alt="A Jury of her Peers">
+      <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+      <div class="book-content">
+        <div class="book-title">The Kiss</div>
+        <div class="book-author">Anton Chekhov D</div>
+        <div class="download-buttons">
+          <a href="epubs/chekhov-the-kiss.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/chekhov-the-kiss.pdf" class="download pdf-btn">PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="book">
+      <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of her Peers">
       <div class="book-content">
         <div class="book-title">A Jury of her Peers</div>
         <div class="book-author">Susan Glaspell</div>
         <div class="download-buttons">
-          <a href="epubs/Glaspell - A Jury of Her Peers.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download pdf-btn">Download PDF</a>
+          <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download pdf-btn">PDF</a>
         </div>
       </div>
     </div>
-
     <div class="book">
-      <img src="Covers/[Cover] Hardy - The Three Strangers.png" alt="The Three Strangers">
+      <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
       <div class="book-content">
         <div class="book-title">The Three Strangers</div>
-        <div class="book-author">Thomas Hardy</div>
+        <div class="book-author">Author F</div>
         <div class="download-buttons">
-          <a href="epubs/Hardy - The Three Strangers.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/hardy-the-three-strangers.pdf" class="download pdf-btn">Download PDF</a>
+          <a href="epubs/hardy-the-three-strangers.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/hardy-the-three-strangers.pdf" class="download pdf-btn">PDF</a>
         </div>
       </div>
     </div>
+    </section>
 
+  <!-- NOVELS SECTION -->
+  <div class="section-header">
+    <h2>Novels</h2>
+    <a class="more-btn" href="novels.html">More Novels →</a>
+  </div>
+  <section class="library">
     <div class="book">
-      <img src="Covers/[Cover] Storm - Immensee.png" alt="Immensee">
+      <img src="covers/novel1.jpg" alt="Novel One">
       <div class="book-content">
-        <div class="book-title">Immensee</div>
-        <div class="book-author">Theodor Storm</div>
+        <div class="book-title">Novel One</div>
+        <div class="book-author">Author A</div>
         <div class="download-buttons">
-          <a href="epubs/Storm - Immensee.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/storm-immensee.pdf" class="download pdf-btn">Download PDF</a>
+          <a href="epubs/novel1.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/novel1.pdf" class="download pdf-btn">PDF</a>
         </div>
       </div>
     </div>
-
-        <div class="book">
-      <img src="Covers/balzac-the-unknown-masterpiece.png" alt="The Unknown Masterpiece">
-      <div class="book-content">
-        <div class="book-title">The Unknown Masterpiece</div>
-        <div class="book-author">Honore de Balzac</div>
-        <div class="download-buttons">
-          <a href="epubs/balzac-the-unknown-masterpiece.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/balzac-the-unknown-masterpiece.pdf" class="download pdf-btn">Download PDF</a>
-        </div>
-      </div>
-    </div>
-
-        <div class="book">
-      <img src="Covers/chekhov-the-kiss.png" alt="The Kiss">
-      <div class="book-content">
-        <div class="book-title">The Kiss</div>
-        <div class="book-author">Anton Chekhov</div>
-        <div class="download-buttons">
-          <a href="epubs/chekhov-the-kiss.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/chekhov-the-kiss.pdf" class="download pdf-btn">Download PDF</a>
-        </div>
-      </div>
-    </div>
-
     <div class="book">
-      <img src="Covers/maupassant-two-friends.png" alt="Two Friends">
+      <img src="covers/novel2.jpg" alt="Novel Two">
       <div class="book-content">
-        <div class="book-title">Two Friends</div>
-        <div class="book-author">Guy de Maupassant</div>
+        <div class="book-title">Novel Two</div>
+        <div class="book-author">Author B</div>
         <div class="download-buttons">
-          <a href="epubs/maupassant-two-friends.epub" class="download epub-btn">Download EPUB</a>
-          <a href="pdfs/maupassant-two-friends.pdf" class="download pdf-btn">Download PDF</a>
+          <a href="epubs/novel2.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/novel2.pdf" class="download pdf-btn">PDF</a>
         </div>
       </div>
     </div>
-
-    
+    <div class="book">
+      <img src="covers/novel3.jpg" alt="Novel Three">
+      <div class="book-content">
+        <div class="book-title">Novel Three</div>
+        <div class="book-author">Author C</div>
+        <div class="download-buttons">
+          <a href="epubs/novel3.epub" class="download epub-btn">EPUB</a>
+          <a href="pdfs/novel3.pdf" class="download pdf-btn">PDF</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const books = document.querySelectorAll('.book');
 
-    searchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase();
-      books.forEach(book => {
-        const title = book.querySelector('.book-title').textContent.toLowerCase();
-        const author = book.querySelector('.book-author').textContent.toLowerCase();
-        if (title.includes(query) || author.includes(query)) {
-          book.style.display = '';
-        } else {
-          book.style.display = 'none';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
