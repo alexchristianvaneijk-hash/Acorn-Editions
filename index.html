@@ -5,189 +5,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acorn Editions</title>
   <style>
+    /* ---------- BASE STYLES ---------- */
     body {
-      font-family: system-ui, sans-serif;
-      background-color: #f5f5f5;
       margin: 0;
-      padding: 0;
+      font-family: "Georgia", serif;
+      background-color: #fdfcf9;
+      color: #222;
+      line-height: 1.6;
     }
-    header {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-    }
-    nav {
-      background: #444;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
+
+    a {
       text-decoration: none;
+      color: inherit;
     }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+    }
+
+    header h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    nav {
+      text-align: center;
+      padding: 1rem 0;
+      border-top: 1px solid #e0dfdb;
+      border-bottom: 1px solid #e0dfdb;
+      background-color: #f8f7f3;
+    }
+
+    nav a {
+      margin: 0 1.5rem;
+      font-size: 1rem;
+      color: #444;
+      transition: color 0.2s;
+    }
+
     nav a:hover {
-      text-decoration: underline;
+      color: #b86b36;
     }
-    .library {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* CHANGED: smaller book width */
+
+    /* ---------- HERO CAROUSEL ---------- */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.7);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50%;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255,255,255,0.9);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* ---------- FEATURED CAROUSEL ---------- */
+    .carousel-small {
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 10px;
+    }
+
+    .carousel-track-small {
+      display: flex;
       gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1000px; /* CHANGED: narrower max width for white space */
-      margin: auto;
+      transition: transform 0.5s ease;
     }
-    .book {
+
+    .feature-card {
       background: white;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex: 0 0 260px;
+      text-align: center;
+      padding-bottom: 1rem;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
-    .book img {
+
+    .feature-card img {
       width: 100%;
       height: auto;
+      border-bottom: 1px solid #eee;
     }
-    .book-content {
-      padding: 1rem;
-      flex: 1;
+
+    .feature-card h4 {
+      margin: 0.8rem 0 0.3rem;
+      font-size: 1.1rem;
     }
-    .book-title {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    .book-author {
-      color: #666;
+
+    .feature-card p {
       font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-    .download {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: #0077cc;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .download:hover {
-      background: #005fa3;
-    }
-    /* CHANGED: More button style to match book size */
-    .more-tile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ddd;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
       color: #555;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: background 0.2s;
+      padding: 0 1rem;
     }
-    .more-tile:hover {
-      background: #ccc;
+
+    .carousel-small .prev,
+    .carousel-small .next {
+      top: 45%;
     }
-    /* CHANGED: Section title style (#2) */
-    h2 {
-      font-size: 1.8rem;
-      margin: 2rem auto 1rem auto;
-      max-width: 1000px; /* align with library width */
-      font-weight: 700;
-      color: #222;
-      position: relative;
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #e0dfdb;
+      margin-top: 3rem;
     }
-    h2::after {
-      content: "";
-      display: block;
-      width: 50px;
-      height: 4px;
-      background: #0077cc;
-      margin-top: 0.3rem;
-    }
+
   </style>
 </head>
 <body>
   <header>
     <h1>Acorn Editions</h1>
-    <p>Literary classics, lovingly reprinted and shared for free.</p>
+    <p>Literary classics, lovingly reprinted and freely shared.</p>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="novels.html">Novels</a>
     <a href="short-stories.html">Short Stories</a>
+    <a href="about.html">About</a>
   </nav>
 
-  <main>
-    <h2>Novels</h2> <!-- CHANGED: now styled with accent bar -->
-    <section class="library">
-      <div class="book">
-        <img src="covers/huysmans-la-bas.png" alt="La Bas">
-        <div class="book-content">
-          <div class="book-title">Là-Bas (Down There)</div>
-          <div class="book-author">Joris-Karl Huysmans</div>
-          <a href="epubs/huysmans-la-bas.epub" class="download">EPUB</a>
-          <a href="pdfs/huysmans-la-bas.pdf" class="download">PDF</a>
-        </div>
-      </div>
-      <div class="book">
-        <img src="Covers/[Cover] Novel2.png" alt="Novel 2">
-        <div class="book-content">
-          <div class="book-title">Novel 2</div>
-          <div class="book-author">Author 2</div>
-          <a href="epubs/Novel2.epub" class="download">EPUB</a>
-          <a href="pdfs/Novel2.pdf" class="download">PDF</a>
-        </div>
-      </div>
-      <div class="book">
-        <img src="Covers/[Cover] Novel3.png" alt="Novel 3">
-        <div class="book-content">
-          <div class="book-title">Novel 3</div>
-          <div class="book-author">Author 3</div>
-          <a href="epubs/Novel3.epub" class="download">EPUB</a>
-          <a href="pdfs/Novel3.pdf" class="download">PDF</a>
-        </div>
-      </div>
-      <!-- CHANGED: More button as a full tile -->
-      <a href="novels.html" class="more-tile">More Novels →</a>
-    </section>
-
-    <h2>Short Stories</h2> <!-- CHANGED: now styled with accent bar -->
-    <section class="library">
-      <div class="book">
-        <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of her Peers">
-        <div class="book-content">
-          <div class="book-title">A Jury of her Peers</div>
-          <div class="book-author">Susan Glaspell</div>
-          <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download">EPUB</a>
-          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download">PDF</a>
-        </div>
-      </div>
-      <div class="book">
+  <!-- NEW: HERO CAROUSEL -->
+  <section class="carousel">
+    <div class="carousel-track">
+      <div class="slide">
         <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
-        <div class="book-content">
-          <div class="book-title">The Three Strangers</div>
-          <div class="book-author">Thomas Hardy</div>
-          <a href="epubs/hardy-the-three-strangers.epub" class="download">EPUB</a>
-          <a href="pdfs/hardy-the-three-strangers.pdf" class="download">PDF</a>
-        </div>
+        <div class="slide-caption">Thomas Hardy · The Three Strangers</div>
       </div>
-      <div class="book">
+      <div class="slide">
+        <img src="covers/[glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
+        <div class="slide-caption">Susan Glaspell · A Jury of Her Peers</div>
+      </div>
+      <div class="slide">
+        <img src="covers/storm-immensee.png" alt="Immensee">
+        <div class="slide-caption">Theodor Storm · Immensee</div>
+      </div>
+    </div>
+    <button class="carousel-btn prev">‹</button>
+    <button class="carousel-btn next">›</button>
+  </section>
+
+  <!-- NEW: FEATURED CAROUSEL -->
+  <section class="carousel-small">
+    <div class="carousel-track-small">
+      <div class="feature-card">
+        <img src="covers/huysmans-la-bas.png" alt="La-Bas">
+        <h4>Lá-Bas</h4>
+        <p>J.K. Huysmans</p>
+      </div>
+      <div class="feature-card">
+        <img src="covers/maupassant-two-friends.png" alt="Two Friends">
+        <h4>Two Friends</h4>
+        <p>Guy de Maupassant</p>
+      </div>
+      <div class="feature-card">
         <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-        <div class="book-content">
-          <div class="book-title">The Kiss</div>
-          <div class="book-author">Anton Chekhov</div>
-          <a href="epubs/chekhov-the-kiss.epub" class="download">EPUB</a>
-          <a href="pdfs/chekhov-the-kiss.pdf" class="download">PDF</a>
-        </div>
+        <h4>The Kiss</h4>
+        <p>Anton Chekhov</p>
       </div>
-      <!-- CHANGED: More button as a full tile -->
-      <a href="short-stories.html" class="more-tile">More Short Stories →</a>
-    </section>
-  </main>
+      <div class="feature-card">
+        <img src="Covers/[Cover] Wilde - The Happy Prince.png" alt="The Happy Prince">
+        <h4>The Happy Prince</h4>
+        <p>Oscar Wilde</p>
+      </div>
+    </div>
+    <button class="carousel-btn prev">‹</button>
+    <button class="carousel-btn next">›</button>
+  </section>
+
+  <footer>
+    © Acorn Editions · Curated public domain literature for the modern reader.
+  </footer>
+
+  <!-- NEW: JS FOR CAROUSELS -->
+  <script>
+    // Hero carousel
+    const heroTrack = document.querySelector('.carousel-track');
+    const heroSlides = Array.from(heroTrack.children);
+    const heroPrev = document.querySelector('.carousel .prev');
+    const heroNext = document.querySelector('.carousel .next');
+    let heroIndex = 0;
+
+    function updateHeroCarousel() {
+      heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+    }
+    heroPrev.addEventListener('click', () => {
+      heroIndex = (heroIndex - 1 + heroSlides.length) % heroSlides.length;
+      updateHeroCarousel();
+    });
+    heroNext.addEventListener('click', () => {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      updateHeroCarousel();
+    });
+    setInterval(() => {
+      heroIndex = (heroIndex + 1) % heroSlides.length;
+      updateHeroCarousel();
+    }, 5000);
+
+    // Featured carousel
+    const smallTrack = document.querySelector('.carousel-track-small');
+    const smallCards = Array.from(smallTrack.children);
+    const smallPrev = document.querySelector('.carousel-small .prev');
+    const smallNext = document.querySelector('.carousel-small .next');
+    let smallIndex = 0;
+    const cardWidth = smallCards[0].offsetWidth + 24;
+
+    function updateSmallCarousel() {
+      smallTrack.style.transform = `translateX(-${smallIndex * cardWidth}px)`;
+    }
+    smallPrev.addEventListener('click', () => {
+      smallIndex = Math.max(0, smallIndex - 1);
+      updateSmallCarousel();
+    });
+    smallNext.addEventListener('click', () => {
+      smallIndex = Math.min(smallCards.length - 1, smallIndex + 1);
+      updateSmallCarousel();
+    });
+  </script>
 </body>
 </html>
