@@ -334,34 +334,72 @@
     © Acorn Editions · Curated public domain literature for the modern reader.
   </footer>
 
-  <script>
-    // Reusable carousel setup
-    function setupCarousel(sectionSelector) {
-      const track = document.querySelector(sectionSelector + ' .carousel-track-small');
-      const cards = Array.from(track.children);
-      const prev = document.querySelector(sectionSelector + ' .prev');
-      const next = document.querySelector(sectionSelector + ' .next');
-      let index = 0;
+<script>
+  // Enhanced carousel setup with touch, mouse, and auto-slide
+  function setupCarousel(sectionSelector) {
+    const track = document.querySelector(sectionSelector + ' .carousel-track-small');
+    const cards = Array.from(track.children);
+    const prev = document.querySelector(sectionSelector + ' .prev');
+    const next = document.querySelector(sectionSelector + ' .next');
+    let index = 0;
 
-      function update() {
-        const cardWidth = cards[0].offsetWidth + 24;
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-      }
-
-      prev.addEventListener('click', () => {
-        index = Math.max(0, index - 1);
-        update();
-      });
-
-      next.addEventListener('click', () => {
-        index = Math.min(cards.length - 1, index + 1);
-        update();
-      });
+    function update() {
+      const cardWidth = cards[0].offsetWidth + 24;
+      track.style.transform = `translateX(-${index * cardWidth}px)`;
     }
 
-    // Apply to both carousels
-    const sections = document.querySelectorAll('.carousel-small');
-    sections.forEach((section, i) => setupCarousel(`section:nth-of-type(${i + 1})`));
-  </script>
+    function nextSlide() {
+      index = (index + 1) % cards.length;
+      update();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + cards.length) % cards.length;
+      update();
+    }
+
+    prev.addEventListener('click', prevSlide);
+    next.addEventListener('click', nextSlide);
+
+    /* 🟢 SWIPE SUPPORT (touch + mouse drag) */
+    let startX = 0;
+    let isDragging = false;
+
+    function startDrag(x) {
+      startX = x;
+      isDragging = true;
+    }
+
+    function endDrag(x) {
+      if (!isDragging) return;
+      const diff = startX - x;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? nextSlide() : prevSlide();
+      }
+      isDragging = false;
+    }
+
+    // Touch events
+    track.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientX));
+    track.addEventListener('touchend', (e) => endDrag(e.changedTouches[0].clientX));
+
+    // Mouse drag events
+    track.addEventListener('mousedown', (e) => startDrag(e.clientX));
+    track.addEventListener('mouseup', (e) => endDrag(e.clientX));
+
+    /* 🟢 AUTO-SLIDE */
+    let autoSlide = setInterval(nextSlide, 5000); // every 5 seconds
+
+    // Pause on hover or touch
+    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    track.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 5000));
+    track.addEventListener('touchstart', () => clearInterval(autoSlide));
+    track.addEventListener('touchend', () => autoSlide = setInterval(nextSlide, 5000));
+  }
+
+  // Apply to both carousels
+  const sections = document.querySelectorAll('.carousel-small');
+  sections.forEach((section, i) => setupCarousel(`section:nth-of-type(${i + 1})`));
+</script>
 </body>
 </html>
