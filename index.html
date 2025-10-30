@@ -100,12 +100,35 @@
       position: relative;
     }
 
-    .feature-card img {
+    /* ---------- COVER WRAPPER ---------- */
+    .cover-wrapper {
+      position: relative;
+    }
+
+    .cover-wrapper img {
       width: 100%;
       height: auto;
       border-bottom: 1px solid #eee;
+      border-radius: 8px 8px 0 0;
+      display: block;
     }
 
+    /* ---------- BOOK TYPE BADGE ---------- */
+    .book-type {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, 0.75);
+      color: #333;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    /* ---------- TEXT ---------- */
     .feature-card h4 {
       margin: 0.8rem 0 0.3rem;
       font-size: 1.1rem;
@@ -116,20 +139,6 @@
       color: #555;
       padding: 0 1rem;
       margin-bottom: 0.5rem;
-    }
-
-    /* ---------- BOOK TYPE BADGE ---------- */
-    .book-type {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(255,255,255,0.9);
-      color: #444;
-      font-size: 0.75rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      border: 1px solid #ddd;
     }
 
     /* ---------- DOWNLOAD BUTTONS ---------- */
@@ -207,9 +216,12 @@
 
     <div class="carousel-small">
       <div class="carousel-track-small">
+
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
+          <div class="cover-wrapper">
+            <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
+            <span class="book-type">Short Story</span>
+          </div>
           <h4>A Jury of Her Peers</h4>
           <p>Susan Glaspell</p>
           <div class="download-buttons">
@@ -219,8 +231,10 @@
         </div>
 
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
+          <div class="cover-wrapper">
+            <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
+            <span class="book-type">Short Story</span>
+          </div>
           <h4>The Three Strangers</h4>
           <p>Thomas Hardy</p>
           <div class="download-buttons">
@@ -230,8 +244,10 @@
         </div>
 
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/storm-immensee.png" alt="Immensee">
+          <div class="cover-wrapper">
+            <img src="covers/storm-immensee.png" alt="Immensee">
+            <span class="book-type">Short Story</span>
+          </div>
           <h4>Immensee</h4>
           <p>Theodor Storm</p>
           <div class="download-buttons">
@@ -239,6 +255,7 @@
             <a href="pdfs/storm-immensee.pdf" class="download-btn">PDF</a>
           </div>
         </div>
+
       </div>
       <button class="carousel-btn prev">‹</button>
       <button class="carousel-btn next">›</button>
@@ -254,9 +271,12 @@
 
     <div class="carousel-small">
       <div class="carousel-track-small">
+
         <div class="feature-card">
-          <span class="book-type">Novel</span>
-          <img src="covers/huysmans-la-bas.png" alt="La-Bas">
+          <div class="cover-wrapper">
+            <img src="covers/huysmans-la-bas.png" alt="La-Bas">
+            <span class="book-type">Novel</span>
+          </div>
           <h4>Là-Bas</h4>
           <p>J.K. Huysmans</p>
           <div class="download-buttons">
@@ -266,8 +286,10 @@
         </div>
 
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/maupassant-two-friends.png" alt="Two Friends">
+          <div class="cover-wrapper">
+            <img src="covers/maupassant-two-friends.png" alt="Two Friends">
+            <span class="book-type">Short Story</span>
+          </div>
           <h4>Two Friends</h4>
           <p>Guy de Maupassant</p>
           <div class="download-buttons">
@@ -277,8 +299,10 @@
         </div>
 
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+          <div class="cover-wrapper">
+            <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+            <span class="book-type">Short Story</span>
+          </div>
           <h4>The Kiss</h4>
           <p>Anton Chekhov</p>
           <div class="download-buttons">
@@ -288,15 +312,18 @@
         </div>
 
         <div class="feature-card">
-          <span class="book-type">Short Story</span>
-          <img src="covers/balzac-the-unkown-masterpiece.png" alt="The Unkown Masterpiece">
-          <h4>The Unkown Masterpiece</h4>
+          <div class="cover-wrapper">
+            <img src="covers/balzac-the-unkown-masterpiece.png" alt="The Unknown Masterpiece">
+            <span class="book-type">Short Story</span>
+          </div>
+          <h4>The Unknown Masterpiece</h4>
           <p>Honoré de Balzac</p>
           <div class="download-buttons">
             <a href="epubs/balzac-the-unkown-masterpiece.epub" class="download-btn">EPUB</a>
             <a href="pdfs/balzac-the-unkown-masterpiece.pdf" class="download-btn">PDF</a>
           </div>
         </div>
+
       </div>
       <button class="carousel-btn prev">‹</button>
       <button class="carousel-btn next">›</button>
