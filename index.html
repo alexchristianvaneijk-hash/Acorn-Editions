@@ -387,14 +387,6 @@
     track.addEventListener('mousedown', (e) => startDrag(e.clientX));
     track.addEventListener('mouseup', (e) => endDrag(e.clientX));
 
-    /* 🟢 AUTO-SLIDE */
-    let autoSlide = setInterval(nextSlide, 5000); // every 5 seconds
-
-    // Pause on hover or touch
-    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    track.addEventListener('mouseleave', () => autoSlide = setInterval(nextSlide, 5000));
-    track.addEventListener('touchstart', () => clearInterval(autoSlide));
-    track.addEventListener('touchend', () => autoSlide = setInterval(nextSlide, 5000));
   }
 
   // Apply to both carousels
