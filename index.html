@@ -55,67 +55,31 @@
       color: #b86b36;
     }
 
-    /* ---------- HERO CAROUSEL ---------- */
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 900px;
-      margin: 2rem auto;
-      border-radius: 10px;
+    /* ---------- SECTION HEADINGS ---------- */
+    .section-header {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
     }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease;
+    .section-header h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #222;
     }
 
-    .slide {
-      min-width: 100%;
-      position: relative;
+    .section-header p {
+      color: #666;
+      font-size: 0.95rem;
     }
 
-    .slide img {
-      width: 100%;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .slide-caption {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 0.8rem 1rem;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.7);
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.3rem 0.8rem;
-      border-radius: 50%;
-    }
-
-    .carousel-btn:hover {
-      background: rgba(255,255,255,0.9);
-    }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    /* ---------- FEATURED CAROUSEL ---------- */
+    /* ---------- SMALL CAROUSEL ---------- */
     .carousel-small {
       position: relative;
       overflow: hidden;
       max-width: 900px;
-      margin: 3rem auto;
+      margin: 2rem auto 3rem auto;
       border-radius: 10px;
     }
 
@@ -133,6 +97,7 @@
       text-align: center;
       padding-bottom: 1rem;
       overflow: hidden;
+      position: relative;
     }
 
     .feature-card img {
@@ -150,14 +115,65 @@
       font-size: 0.9rem;
       color: #555;
       padding: 0 1rem;
+      margin-bottom: 0.5rem;
     }
 
-    .carousel-small .prev,
-    .carousel-small .next {
+    /* ---------- BOOK TYPE BADGE ---------- */
+    .book-type {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255,255,255,0.9);
+      color: #444;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      border: 1px solid #ddd;
+    }
+
+    /* ---------- DOWNLOAD BUTTONS ---------- */
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .download-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: #f7f6f3;
+      color: #333;
+      transition: all 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background: #e8e7e3;
+      border-color: #aaa;
+    }
+
+    .carousel-btn {
+      position: absolute;
       top: 45%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.7);
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50%;
     }
 
-    /* ---------- FOOTER ---------- */
+    .carousel-btn:hover {
+      background: rgba(255,255,255,0.9);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -182,102 +198,143 @@
     <a href="about.html">About</a>
   </nav>
 
-  <!-- NEW: HERO CAROUSEL -->
-  <section class="carousel">
-    <div class="carousel-track">
-      <div class="slide">
-        <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
-        <div class="slide-caption">Thomas Hardy · The Three Strangers</div>
-      </div>
-      <div class="slide">
-        <img src="covers/[glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
-        <div class="slide-caption">Susan Glaspell · A Jury of Her Peers</div>
-      </div>
-      <div class="slide">
-        <img src="covers/storm-immensee.png" alt="Immensee">
-        <div class="slide-caption">Theodor Storm · Immensee</div>
-      </div>
+  <!-- ✳️ NEWEST ADDITIONS -->
+  <section>
+    <div class="section-header">
+      <h2>Newest Additions</h2>
+      <p>Freshly typeset classics added to our growing collection.</p>
     </div>
-    <button class="carousel-btn prev">‹</button>
-    <button class="carousel-btn next">›</button>
+
+    <div class="carousel-small">
+      <div class="carousel-track-small">
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
+          <h4>A Jury of Her Peers</h4>
+          <p>Susan Glaspell</p>
+          <div class="download-buttons">
+            <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
+          <h4>The Three Strangers</h4>
+          <p>Thomas Hardy</p>
+          <div class="download-buttons">
+            <a href="epubs/hardy-the-three-strangers.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/hardy-the-three-strangers.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/storm-immensee.png" alt="Immensee">
+          <h4>Immensee</h4>
+          <p>Theodor Storm</p>
+          <div class="download-buttons">
+            <a href="epubs/storm-immensee.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/storm-immensee.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn prev">‹</button>
+      <button class="carousel-btn next">›</button>
+    </div>
   </section>
 
-  <!-- NEW: FEATURED CAROUSEL -->
-  <section class="carousel-small">
-    <div class="carousel-track-small">
-      <div class="feature-card">
-        <img src="covers/huysmans-la-bas.png" alt="La-Bas">
-        <h4>Lá-Bas</h4>
-        <p>J.K. Huysmans</p>
-      </div>
-      <div class="feature-card">
-        <img src="covers/maupassant-two-friends.png" alt="Two Friends">
-        <h4>Two Friends</h4>
-        <p>Guy de Maupassant</p>
-      </div>
-      <div class="feature-card">
-        <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-        <h4>The Kiss</h4>
-        <p>Anton Chekhov</p>
-      </div>
-      <div class="feature-card">
-        <img src="Covers/[Cover] Wilde - The Happy Prince.png" alt="The Happy Prince">
-        <h4>The Happy Prince</h4>
-        <p>Oscar Wilde</p>
-      </div>
+  <!-- ✳️ FEATURED -->
+  <section>
+    <div class="section-header">
+      <h2>Featured</h2>
+      <p>Handpicked works showcasing timeless craft and style.</p>
     </div>
-    <button class="carousel-btn prev">‹</button>
-    <button class="carousel-btn next">›</button>
+
+    <div class="carousel-small">
+      <div class="carousel-track-small">
+        <div class="feature-card">
+          <span class="book-type">Novel</span>
+          <img src="covers/huysmans-la-bas.png" alt="La-Bas">
+          <h4>Là-Bas</h4>
+          <p>J.K. Huysmans</p>
+          <div class="download-buttons">
+            <a href="epubs/huysmans-la-bas.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/huysmans-la-bas.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/maupassant-two-friends.png" alt="Two Friends">
+          <h4>Two Friends</h4>
+          <p>Guy de Maupassant</p>
+          <div class="download-buttons">
+            <a href="epubs/maupassant-two-friends.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/maupassant-two-friends.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+          <h4>The Kiss</h4>
+          <p>Anton Chekhov</p>
+          <div class="download-buttons">
+            <a href="epubs/chekhov-the-kiss.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/chekhov-the-kiss.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <span class="book-type">Short Story</span>
+          <img src="covers/balzac-the-unkown-masterpiece.png" alt="The Unkown Masterpiece">
+          <h4>The Unkown Masterpiece</h4>
+          <p>Honoré de Balzac</p>
+          <div class="download-buttons">
+            <a href="epubs/balzac-the-unkown-masterpiece.epub" class="download-btn">EPUB</a>
+            <a href="pdfs/balzac-the-unkown-masterpiece.pdf" class="download-btn">PDF</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn prev">‹</button>
+      <button class="carousel-btn next">›</button>
+    </div>
   </section>
 
   <footer>
     © Acorn Editions · Curated public domain literature for the modern reader.
   </footer>
 
-  <!-- NEW: JS FOR CAROUSELS -->
   <script>
-    // Hero carousel
-    const heroTrack = document.querySelector('.carousel-track');
-    const heroSlides = Array.from(heroTrack.children);
-    const heroPrev = document.querySelector('.carousel .prev');
-    const heroNext = document.querySelector('.carousel .next');
-    let heroIndex = 0;
+    // Reusable carousel setup
+    function setupCarousel(sectionSelector) {
+      const track = document.querySelector(sectionSelector + ' .carousel-track-small');
+      const cards = Array.from(track.children);
+      const prev = document.querySelector(sectionSelector + ' .prev');
+      const next = document.querySelector(sectionSelector + ' .next');
+      let index = 0;
 
-    function updateHeroCarousel() {
-      heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+      function update() {
+        const cardWidth = cards[0].offsetWidth + 24;
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+      }
+
+      prev.addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        update();
+      });
+
+      next.addEventListener('click', () => {
+        index = Math.min(cards.length - 1, index + 1);
+        update();
+      });
     }
-    heroPrev.addEventListener('click', () => {
-      heroIndex = (heroIndex - 1 + heroSlides.length) % heroSlides.length;
-      updateHeroCarousel();
-    });
-    heroNext.addEventListener('click', () => {
-      heroIndex = (heroIndex + 1) % heroSlides.length;
-      updateHeroCarousel();
-    });
-    setInterval(() => {
-      heroIndex = (heroIndex + 1) % heroSlides.length;
-      updateHeroCarousel();
-    }, 5000);
 
-    // Featured carousel
-    const smallTrack = document.querySelector('.carousel-track-small');
-    const smallCards = Array.from(smallTrack.children);
-    const smallPrev = document.querySelector('.carousel-small .prev');
-    const smallNext = document.querySelector('.carousel-small .next');
-    let smallIndex = 0;
-    const cardWidth = smallCards[0].offsetWidth + 24;
-
-    function updateSmallCarousel() {
-      smallTrack.style.transform = `translateX(-${smallIndex * cardWidth}px)`;
-    }
-    smallPrev.addEventListener('click', () => {
-      smallIndex = Math.max(0, smallIndex - 1);
-      updateSmallCarousel();
-    });
-    smallNext.addEventListener('click', () => {
-      smallIndex = Math.min(smallCards.length - 1, smallIndex + 1);
-      updateSmallCarousel();
-    });
+    // Apply to both carousels
+    const sections = document.querySelectorAll('.carousel-small');
+    sections.forEach((section, i) => setupCarousel(`section:nth-of-type(${i + 1})`));
   </script>
 </body>
 </html>
