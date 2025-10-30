@@ -348,8 +348,20 @@
     next.addEventListener('click', () => {
       track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+
+    // optional auto-slide
+    let autoSlide = setInterval(() => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }, 5000);
+
+    // pause on hover
+    track.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    track.addEventListener('mouseleave', () => autoSlide = setInterval(() => {
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }, 5000));
   });
 </script>
+
 
 </body>
 </html>
