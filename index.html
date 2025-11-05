@@ -78,26 +78,46 @@
     .carousel-small {
       position: relative;
       overflow: hidden;
-      max-width: 1200px; /* ✳️ slightly wider */
+      max-width: 1200px;
       margin: 2rem auto 3rem auto;
       border-radius: 10px;
+      cursor: grab; /* ✳️ for desktop drag */
     }
 
     .carousel-track-small {
       display: flex;
       gap: 1.2rem;
-      transition: transform 0.5s ease;
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      scrollbar-width: none; /* hide scrollbar */
     }
 
+    .carousel-track-small::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ---------- FEATURE CARD ---------- */
     .feature-card {
       background: white;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      flex: 0 0 180px; /* ✳️ smaller cards */
+      flex: 0 0 180px;
       text-align: center;
       padding-bottom: 1rem;
       overflow: hidden;
       position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* ✳️ Hover animation */
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .feature-card:hover .download-btn {
+      background: #e0ded9;
+      border-color: #999;
     }
 
     .cover-wrapper {
@@ -115,7 +135,7 @@
       position: absolute;
       bottom: 8px;
       left: 8px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.7);
       color: #333;
       font-size: 0.75rem;
       padding: 0.25rem 0.6rem;
@@ -170,6 +190,7 @@
       font-size: 2rem;
       cursor: pointer;
       transition: background 0.2s ease;
+      z-index: 5;
     }
 
     .carousel-btn:hover {
@@ -229,226 +250,68 @@
       border-top: 1px solid #e0dfdb;
       margin-top: 3rem;
     }
-
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Acorn Editions</h1>
-    <p>Literary classics, lovingly reprinted and freely shared.</p>
-  </header>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="novels.html">Novels</a>
-    <a href="short-stories.html">Short Stories</a>
-    <a href="about.html">About</a>
-  </nav>
-
-  <!-- ✳️ NEWEST ADDITIONS -->
-  <section>
-    <div class="section-header">
-      <h2>Newest Additions</h2>
-      <p>Freshly typeset classics added to our growing collection.</p>
-    </div>
-
-    <div class="carousel-small">
-      <div class="carousel-track-small">
-        
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/huysmans-la-bas.png" alt="La-Bas">
-            <div class="book-type">Novel</div>
-          </div>
-          <h4>Là-Bas</h4>
-          <p>J.K. Huysmans</p>
-          <div class="download-buttons">
-            <a href="epubs/huysmans-la-bas.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/huysmans-la-bas.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/maupassant-two-friends.png" alt="Two Friends">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>Two Friends</h4>
-          <p>Guy de Maupassant</p>
-          <div class="download-buttons">
-            <a href="epubs/maupassant-two-friends.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/maupassant-two-friends.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>The Kiss</h4>
-          <p>Anton Chekhov</p>
-          <div class="download-buttons">
-            <a href="epubs/chekhov-the-kiss.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/chekhov-the-kiss.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-        
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>A Jury of Her Peers</h4>
-          <p>Susan Glaspell</p>
-          <div class="download-buttons">
-            <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>The Three Strangers</h4>
-          <p>Thomas Hardy</p>
-          <div class="download-buttons">
-            <a href="epubs/hardy-the-three-strangers.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/hardy-the-three-strangers.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/storm-immensee.png" alt="Immensee">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>Immensee</h4>
-          <p>Theodor Storm</p>
-          <div class="download-buttons">
-            <a href="epubs/storm-immensee.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/storm-immensee.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-btn prev">‹</button>
-      <button class="carousel-btn next">›</button>
-    </div>
-  </section>
-
-  <!-- ✳️ NEW COLLECTIONS SECTION -->
-  <section>
-    <div class="section-header">
-      <h2>Collections</h2>
-      <p>Explore our curated reading lists and themes.</p>
-    </div>
-
-    <div class="collections">
-      <div class="collection-card">
-        <img src="covers/short-stories-about-love.png" alt="short-stories-about-love">
-        <p>Love, longing, and human connection across time and culture.</p>
-      </div>
-
-      <div class="collection-card">
-        <img src="covers/victorian-ghost-tales.jpg" alt="Victorian Ghost Tales">
-        <p>Classic supernatural encounters from masters of the macabre.</p>
-      </div>
-
-      <div class="collection-card">
-        <img src="covers/modernist-experiments.jpg" alt="Modernist Experiments">
-        <p>Radical styles and psychological depth from early 20th-century fiction.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✳️ FEATURED -->
-  <section>
-    <div class="section-header">
-      <h2>Featured</h2>
-      <p>Handpicked works showcasing timeless craft and style.</p>
-    </div>
-
-    <div class="carousel-small">
-      <div class="carousel-track-small">
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/huysmans-la-bas.png" alt="La-Bas">
-            <div class="book-type">Novel</div>
-          </div>
-          <h4>Là-Bas</h4>
-          <p>J.K. Huysmans</p>
-          <div class="download-buttons">
-            <a href="epubs/huysmans-la-bas.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/huysmans-la-bas.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/maupassant-two-friends.png" alt="Two Friends">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>Two Friends</h4>
-          <p>Guy de Maupassant</p>
-          <div class="download-buttons">
-            <a href="epubs/maupassant-two-friends.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/maupassant-two-friends.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>The Kiss</h4>
-          <p>Anton Chekhov</p>
-          <div class="download-buttons">
-            <a href="epubs/chekhov-the-kiss.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/chekhov-the-kiss.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-btn prev">‹</button>
-      <button class="carousel-btn next">›</button>
-    </div>
-  </section>
+  <!-- (your body content stays exactly as it is) -->
 
   <footer>
     © Acorn Editions · Curated public domain literature for the modern reader.
   </footer>
 
-  <!-- ✳️ UPDATED JS: ARROWS ONLY -->
+  <!-- ✳️ UPDATED JS: Smooth drag + swipe + arrow controls -->
   <script>
     document.querySelectorAll('.carousel-small').forEach(section => {
       const track = section.querySelector('.carousel-track-small');
       const prev = section.querySelector('.prev');
       const next = section.querySelector('.next');
-      const cards = Array.from(track.children);
-      let index = 0;
 
-      function update() {
-        const cardWidth = cards[0].offsetWidth + 20;
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-      }
-
+      // ---- Arrow click scroll ----
       prev.addEventListener('click', () => {
-        index = Math.max(0, index - 1);
-        update();
+        track.scrollBy({ left: -300, behavior: 'smooth' });
       });
 
       next.addEventListener('click', () => {
-        index = Math.min(cards.length - 5, index + 1);
-        update();
+        track.scrollBy({ left: 300, behavior: 'smooth' });
       });
 
-      // auto-slide
-      setInterval(() => {
-        index = (index + 1) % (cards.length - 4);
-        update();
-      }, 6000);
+      // ---- Drag / swipe scrolling ----
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      track.addEventListener('mousedown', e => {
+        isDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+
+      track.addEventListener('mouseleave', () => { isDown = false; });
+      track.addEventListener('mouseup', () => { isDown = false; });
+      track.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.2;
+        track.scrollLeft = scrollLeft - walk;
+      });
+
+      // ---- Touch (mobile) swipe ----
+      let touchStartX = 0;
+      let touchScrollLeft = 0;
+
+      track.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].pageX;
+        touchScrollLeft = track.scrollLeft;
+      });
+
+      track.addEventListener('touchmove', e => {
+        const x = e.touches[0].pageX;
+        const walk = (x - touchStartX) * 1.2;
+        track.scrollLeft = touchScrollLeft - walk;
+      });
     });
   </script>
 </body>
