@@ -6,7 +6,7 @@ url: "https://acorn-editions.com"
 collections:
   books:
     output: true
-    permalink: /books/:title/
+    permalink: /books/:slug/
 
 markdown: kramdown
 kramdown:
