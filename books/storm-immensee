@@ -14,7 +14,7 @@ year: 1850
 cover_image: "/covers/storm-immensee.png"
 epub_file: "/epubs/storm-immensee.epub"
 pdf_file: "/pdfs/storm-immensee.pdf"
-similar:
+similar_books:
   - hardy-three-strangers
   - maupassant-two-friends
   - chekhov-the-kiss
