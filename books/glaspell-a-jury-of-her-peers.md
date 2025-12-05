@@ -15,7 +15,7 @@ cover_image: "/covers/glaspell-a-jury-of-her-peers.png"
 epub_file: "/epubs/glaspell-a-jury-of-her-peers.epub"
 pdf_file: "/pdfs/glaspell-a-jury-of-her-peers.pdf"
 similar_books:
-  - hardy-three-strangers
+  - hardy-the-three-strangers
   - chekhov-the-kiss
 ---
 
