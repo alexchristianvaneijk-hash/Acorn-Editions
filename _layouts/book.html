@@ -180,7 +180,7 @@
   <h3>You Might Also Like</h3>
 
   <div class="rec-grid">
-    {% for book_path in page.similar_books %}
+    {% for book_path in page.similar %}
       {% assign book = site.books | where: "slug", book_path | first %}
       {% if book %}
       <a class="rec-card" href="{{ book.url }}">
