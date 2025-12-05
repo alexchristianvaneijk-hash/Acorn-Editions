@@ -198,6 +198,17 @@
       border-top: 1px solid #e0dfdb;
       margin-top: 3rem;
     }
+/* ---------- CLICKABLE CARD OVERLAY ---------- */
+.card-link-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.download-buttons {
+  position: relative;
+  z-index: 3;
+}
 
     /* small screens: reduce card width so they fit comfortably */
     @media (max-width: 700px) {
@@ -229,8 +240,8 @@
 
     <div class="carousel-small">
       <div class="carousel-track-small" tabindex="0" aria-label="Newest additions carousel">
-        <!-- cards -->
         <div class="feature-card">
+          <a class="card-link-overlay" href="/books/maupassant-legend-of-mont-saint-michel/"></a>
           <div class="cover-wrapper">
             <img src="covers/maupassant-legend-of-mont-saint-michel.png" alt="Legend of Mont-Saint-Michel">
             <div class="book-type">Short Story</div>
@@ -243,85 +254,90 @@
           </div>
         </div>
         
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/huysmans-la-bas.png" alt="La-Bas">
-            <div class="book-type">Novel</div>
-          </div>
-          <h4>Là-Bas</h4>
-          <p>J.K. Huysmans</p>
-          <div class="download-buttons">
-            <a href="epubs/huysmans-la-bas.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/huysmans-la-bas.pdf" class="download-btn">PDF</a>
-          </div>
+      <div class="feature-card">
+        <a class="card-link-overlay" href="/books/huysmans-la-bas/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/huysmans-la-bas.png" alt="La-Bas">
+          <div class="book-type">Novel</div>
         </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/maupassant-two-friends.png" alt="Two Friends">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>Two Friends</h4>
-          <p>Guy de Maupassant</p>
-          <div class="download-buttons">
-            <a href="epubs/maupassant-two-friends.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/maupassant-two-friends.pdf" class="download-btn">PDF</a>
-          </div>
+        <h4>Là-Bas (Down There)</h4>
+        <p>J.K. Huysmans</p>
+        <div class="download-buttons">
+          <a href="epubs/huysmans-la-bas.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/huysmans-la-bas.pdf" class="download-btn">PDF</a>
         </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>The Kiss</h4>
-          <p>Anton Chekhov</p>
-          <div class="download-buttons">
-            <a href="epubs/chekhov-the-kiss.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/chekhov-the-kiss.pdf" class="download-btn">PDF</a>
-          </div>
+      </div>
+        
+     <div class="feature-card">
+        <a class="card-link-overlay" href="/books/maupassant-two-friends/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/maupassant-two-friends.png" alt="Two Friends">
+          <div class="book-type">Short Story</div>
         </div>
-
-        <a class="feature-card" href="https://acorn-editions.com/books/glaspell-a-jury-of-her-peers/">
-          <div class="cover-wrapper">
-            <img src="covers/glaspell-a-jury-of-her-peers.png" alt="A Jury of Her Peers">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>A Jury of Her Peers</h4>
-          <p>Susan Glaspell</p>
-          <div class="download-buttons">
-            <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download-btn">PDF</a>
-          </div>
-        </a>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/hardy-the-three-strangers.png" alt="The Three Strangers">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>The Three Strangers</h4>
-          <p>Thomas Hardy</p>
-          <div class="download-buttons">
-            <a href="epubs/hardy-the-three-strangers.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/hardy-the-three-strangers.pdf" class="download-btn">PDF</a>
-          </div>
-        </div>
-
-        <div class="feature-card">
-          <div class="cover-wrapper">
-            <img src="covers/storm-immensee.png" alt="Immensee">
-            <div class="book-type">Short Story</div>
-          </div>
-          <h4>Immensee</h4>
-          <p>Theodor Storm</p>
-          <div class="download-buttons">
-            <a href="epubs/storm-immensee.epub" class="download-btn">EPUB</a>
-            <a href="pdfs/storm-immensee.pdf" class="download-btn">PDF</a>
-          </div>
+        <h4>Two Friends</h4>
+        <p>Guy de Maupassant</p>
+        <div class="download-buttons">
+          <a href="epubs/maupassant-two-friends.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/maupassant-two-friends.pdf" class="download-btn">PDF</a>
         </div>
       </div>
 
+     <div class="feature-card">
+        <a class="card-link-overlay" href="/books/chekhov-the-kiss/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/chekhov-the-kiss.png" alt="The Kiss">
+          <div class="book-type">Short Story</div>
+        </div>
+        <h4>The Kiss</h4>
+        <p>Anton Chekhov</p>
+        <div class="download-buttons">
+          <a href="epubs/chekhov-the-kiss.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/chekhov-the-kiss.pdf" class="download-btn">PDF</a>
+        </div>
+      </div>
+
+     <div class="feature-card">
+        <a class="card-link-overlay" href="/books/glaspell-a-jury-of-her-peers/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/glaspell-a-jury-of-her-peers" alt="A Jury of her Peers">
+          <div class="book-type">Short Story</div>
+        </div>
+        <h4>A Jury of her Peers</h4>
+        <p>Susan Glaspell</p>
+        <div class="download-buttons">
+          <a href="epubs/glaspell-a-jury-of-her-peers.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/glaspell-a-jury-of-her-peers.pdf" class="download-btn">PDF</a>
+        </div>
+      </div>
+
+     <div class="feature-card">
+        <a class="card-link-overlay" href="/books/hardy-the-three-strangers/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/hardy-the-three-strangers" alt="The Three Strangers">
+          <div class="book-type">Short Story</div>
+        </div>
+        <h4>The Three Strangers</h4>
+        <p>Thomas Hardy</p>
+        <div class="download-buttons">
+          <a href="epubs/hardy-the-three-strangers.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/hardy-the-three-strangers.pdf" class="download-btn">PDF</a>
+        </div>
+      </div>
+
+     <div class="feature-card">
+        <a class="card-link-overlay" href="/books/storm-immensee/"></a>
+        <div class="cover-wrapper">
+          <img src="covers/storm-immensee" alt="Immensee">
+          <div class="book-type">Novella</div>
+        </div>
+        <h4>Immensee</h4>
+        <p>Theodor Storm</p>
+        <div class="download-buttons">
+          <a href="epubs/storm-immensee.epub" class="download-btn">EPUB</a>
+          <a href="pdfs/storm-immensee.pdf" class="download-btn">PDF</a>
+        </div>
+      </div>
+      
       <!-- big vertical arrows -->
       <button class="carousel-btn prev" aria-label="Previous">‹</button>
       <button class="carousel-btn next" aria-label="Next">›</button>
