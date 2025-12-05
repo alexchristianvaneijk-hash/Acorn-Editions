@@ -374,43 +374,76 @@
 
   <!-- FEATURED -->
   <section>
-    <div class="section-header">
-      <h2>Featured</h2>
-      <p>Handpicked works showcasing timeless craft and style.</p>
+    <!-- ========================= -->
+<!-- Featured Books Section    -->
+<!-- ========================= -->
+<section class="featured-section px-6 py-16 max-w-7xl mx-auto">
+  <h2 class="text-3xl font-bold mb-8">Featured Books</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Featured Book 1 -->
+    <div class="featured-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      <div class="w-full h-64 overflow-hidden">
+        <img src="/covers/hardy-the-three-strangers.png" alt="The Three Strangers" class="w-full h-full object-cover">
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-1">The Three Strangers</h3>
+        <p class="text-gray-600 mb-4">Thomas Hardy</p>
+
+        <p class="text-gray-700 text-sm mb-6">
+          The Three Strangers is a quietly thrilling short story, told with Thomas Hardy’s signature eye for setting and character, offering a glimpse into the strange intersections of fate in the English countryside.
+        </p>
+
+        <a href="/books/hardy-the-three-strangers" 
+           class="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
+           View Book
+        </a>
+      </div>
     </div>
 
-      <section class="featured-section px-6 py-16 max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold mb-8">Featured Books</h2>
-    
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {% assign featured_books = site.books | where: "featured", true | slice: 3 %}
-        {% for book in featured_books %}
-        <div class="featured-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-    
-          <!-- Cover -->
-          <div class="w-full h-64 overflow-hidden">
-            <img src="{{ book.cover_image }}" alt="{{ book.title }} cover" class="w-full h-full object-cover">
-          </div>
-    
-          <!-- Content -->
-          <div class="p-6">
-            <h3 class="text-xl font-semibold mb-1">{{ book.title }}</h3>
-            <p class="text-gray-600 mb-4">by {{ book.author }}</p>
-    
-            {% if book.featured_description %}
-            <p class="text-gray-700 text-sm mb-6">
-              {{ book.featured_description }}
-            </p>
-            {% endif %}
-    
-            <a href="{{ book.url }}" 
-               class="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
-               View Book
-            </a>
-          </div>
-        </div>
-        {% endfor %}
+    <!-- Featured Book 2 -->
+    <div class="featured-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      <div class="w-full h-64 overflow-hidden">
+        <img src="/covers/storm-immensee.png" alt="Immensee" class="w-full h-full object-cover">
       </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-1">Immensee</h3>
+        <p class="text-gray-600 mb-4">Theodor Storm</p>
+
+        <p class="text-gray-700 text-sm mb-6">
+          Through delicate prose and evocative landscapes, Theodor Storm weaves a poignant meditiation on lost chances and the passage of time.
+        </p>
+
+        <a href="/books/storm-immensee" 
+           class="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
+           View Book
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured Book 3 -->
+    <div class="featured-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+      <div class="w-full h-64 overflow-hidden">
+        <img src="/covers/maupassant-two-friends.png" alt="Two Friends" class="w-full h-full object-cover">
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-semibold mb-1">Two Friends</h3>
+        <p class="text-gray-600 mb-4">Guy de Maupassant</p>
+
+        <p class="text-gray-700 text-sm mb-6">
+          With his signature realism and sharp irony, Guy de Maupassant delivers a poignant reflection on loyalty, innocence, and the harsh cost of war.
+        </p>
+
+        <a href="/books/maupassant-two-friends" 
+           class="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
+           View Book
+        </a>
+      </div>
+    </div>
+
+  </div>
+
 </section>
 
   </section>
