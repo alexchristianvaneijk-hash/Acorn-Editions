@@ -1,0 +1,20 @@
+title: "Acorn Editions"
+description: "Curated public domain literature for the modern reader."
+baseurl: "" 
+url: "https://acorn-editions.com"
+
+collections:
+  books:
+    output: true
+    permalink: /books/:title/
+
+markdown: kramdown
+kramdown:
+  auto_ids: true
+
+defaults:
+  - scope:
+      path: "books"
+      type: books
+    values:
+      layout: book
