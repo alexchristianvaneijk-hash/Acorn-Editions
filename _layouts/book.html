@@ -192,6 +192,10 @@
     {% endfor %}
   </div>
 </section>
-  
+
+  <pre style="padding:20px; background:#ffeeee; color:#333;">
+All known book slugs: {{ site.books | map: "slug" | join: ", " }}
+</pre>
+
 </body>
 </html>
