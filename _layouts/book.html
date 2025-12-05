@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} – Acorn Editions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #fdfcf9;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .book-header {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .book-header img {
+      width: 260px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .book-info h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-info .author {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .meta {
+      margin-bottom: 1rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .meta span {
+      margin-right: 1.5rem;
+    }
+
+    .tags {
+      margin: 1rem 0;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #eee;
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+      margin: 0.25rem;
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    .description {
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .download-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .download-btn {
+      background: #f3f2ee;
+      border: 1px solid #c7c5c0;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #e8e7e3;
+      border-color: #999;
+    }
+
+    hr {
+      margin: 2.5rem 0;
+      border: 0;
+      border-top: 1px solid #e1dfdb;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="book-header">
+      <!-- COVER -->
+      <img src="{{ page.cover_image }}" alt="Cover of {{ page.title }}">
+
+      <!-- TEXT INFO -->
+      <div class="book-info">
+        <h1>{{ page.title }}</h1>
+        <div class="author">{{ page.author }}</div>
+
+        <!-- META INFORMATION -->
+        <div class="meta">
+          {% if page.type %}<span><strong>Type:</strong> {{ page.type }}</span>{% endif %}
+          {% if page.genre %}<span><strong>Genre:</strong> {{ page.genre }}</span>{% endif %}
+          {% if page.year %}<span><strong>Year:</strong> {{ page.year }}</span>{% endif %}
+          {% if page.original_language %}<span><strong>Language:</strong> {{ page.original_language }}</span>{% endif %}
+          {% if page.reading_time %}<span><strong>Reading Time:</strong> {{ page.reading_time }}</span>{% endif %}
+        </div>
+
+        <!-- TAGS -->
+        {% if page.tags %}
+        <div class="tags">
+          {% for tag in page.tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- DOWNLOAD BUTTONS -->
+        <div class="download-buttons">
+          {% if page.epub_file %}
+          <a class="download-btn" href="{{ page.epub_file }}">Download EPUB</a>
+          {% endif %}
+          {% if page.pdf_file %}
+          <a class="download-btn" href="{{ page.pdf_file }}">Download PDF</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- DESCRIPTION (supports markdown!) -->
+    <div class="description">
+      {{ content }}
+    </div>
+
+  </div>
+</body>
+</html>
 
