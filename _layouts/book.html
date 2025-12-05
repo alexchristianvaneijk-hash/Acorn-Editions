@@ -1,158 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }} – Acorn Editions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} — Acorn Editions</title>
+
   <style>
     body {
+      font-family: "Georgia", serif;
       margin: 0;
-      font-family: Georgia, serif;
-      background: #fdfcf9;
+      padding: 0;
+      background: #faf8f4;
       color: #222;
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+    /* ---------- Global Header ---------- */
+    header {
+      padding: 30px 40px;
+      background: #faf8f4;
+      border-bottom: 1px solid #eee;
+      text-align: left;
     }
 
-    .book-header {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      align-items: flex-start;
+    header h1 {
+      font-size: 32px;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
-    .book-header img {
-      width: 260px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    /* ---------- Book Section ---------- */
+    .book-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      padding: 0 20px;
     }
 
-    .book-info h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
+    .book-cover {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
-    .book-info .author {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 1rem;
+    .book-meta h2 {
+      margin-top: 0;
+      font-size: 28px;
+      font-weight: 600;
     }
 
-    .meta {
-      margin-bottom: 1rem;
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    .meta span {
-      margin-right: 1.5rem;
-    }
-
-    .tags {
-      margin: 1rem 0;
-    }
-
-    .tags span {
+    .tag {
       display: inline-block;
-      background: #eee;
-      border-radius: 20px;
-      padding: 0.25rem 0.75rem;
-      margin: 0.25rem;
-      font-size: 0.8rem;
-      color: #444;
-    }
-
-    .description {
-      margin-top: 1.5rem;
-      font-size: 1.05rem;
+      background: #e2ded7;
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 4px;
+      margin-right: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .download-buttons {
-      margin-top: 1.5rem;
+      margin-top: 20px;
       display: flex;
-      gap: 1rem;
+      gap: 12px;
     }
 
-    .download-btn {
-      background: #f3f2ee;
-      border: 1px solid #c7c5c0;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
+    .download-buttons a {
+      padding: 10px 16px;
+      background: #111;
+      color: #fff;
       text-decoration: none;
-      color: #333;
-      transition: background 0.2s, border-color 0.2s;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background 0.2s ease;
     }
 
-    .download-btn:hover {
-      background: #e8e7e3;
-      border-color: #999;
+    .download-buttons a:hover {
+      background: #444;
     }
 
-    hr {
-      margin: 2.5rem 0;
-      border: 0;
-      border-top: 1px solid #e1dfdb;
+    /* ---------- Recommendations Section ---------- */
+    .rec-section {
+      max-width: 1100px;
+      margin: 80px auto 40px;
+      padding: 0 20px;
     }
+
+    .rec-section h3 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 30px;
+    }
+
+    .rec-card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .rec-card:hover {
+      transform: scale(1.04);
+    }
+
+    .rec-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .rec-card-title {
+      font-size: 15px;
+      margin: 6px 0 0;
+      font-weight: 600;
+    }
+
+    .rec-card-type {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <div class="book-header">
-      <!-- COVER -->
-      <img src="{{ page.cover_image }}" alt="Cover of {{ page.title }}">
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>Acorn Editions</h1>
+  </header>
 
-      <!-- TEXT INFO -->
-      <div class="book-info">
-        <h1>{{ page.title }}</h1>
-        <div class="author">{{ page.author }}</div>
+  <!-- ===== BOOK DETAILS ===== -->
+  <section class="book-container">
+    <div>
+      <img class="book-cover" src="{{ page.cover_image }}" alt="{{ page.title }} cover" />
+    </div>
 
-        <!-- META INFORMATION -->
-        <div class="meta">
-          {% if page.type %}<span><strong>Type:</strong> {{ page.type }}</span>{% endif %}
-          {% if page.genre %}<span><strong>Genre:</strong> {{ page.genre }}</span>{% endif %}
-          {% if page.year %}<span><strong>Year:</strong> {{ page.year }}</span>{% endif %}
-          {% if page.original_language %}<span><strong>Language:</strong> {{ page.original_language }}</span>{% endif %}
-          {% if page.reading_time %}<span><strong>Reading Time:</strong> {{ page.reading_time }}</span>{% endif %}
-        </div>
+    <div class="book-meta">
+      <h2>{{ page.title }}</h2>
+      <p><strong>{{ page.author }}</strong></p>
 
-        <!-- TAGS -->
-        {% if page.tags %}
-        <div class="tags">
-          {% for tag in page.tags %}
-            <span>{{ tag }}</span>
-          {% endfor %}
-        </div>
+      <div class="tags">
+        <span class="tag">{{ page.type }}</span>
+        {% if page.genre %}<span class="tag">{{ page.genre }}</span>{% endif %}
+        {% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+
+      <p style="margin-top:20px;">
+        {{ content }}
+      </p>
+
+      <div class="download-buttons">
+        {% if page.epub_file %}
+        <a href="{{ page.epub_file }}" download>Download EPUB</a>
         {% endif %}
 
-        <!-- DOWNLOAD BUTTONS -->
-        <div class="download-buttons">
-          {% if page.epub_file %}
-          <a class="download-btn" href="{{ page.epub_file }}">Download EPUB</a>
-          {% endif %}
-          {% if page.pdf_file %}
-          <a class="download-btn" href="{{ page.pdf_file }}">Download PDF</a>
-          {% endif %}
-        </div>
+        {% if page.pdf_file %}
+        <a href="{{ page.pdf_file }}" download>Download PDF</a>
+        {% endif %}
       </div>
     </div>
+  </section>
 
-    <hr>
+  <!-- ===== RECOMMENDATIONS ===== -->
+  <section class="rec-section">
+  <h3>You Might Also Like</h3>
 
-    <!-- DESCRIPTION (supports markdown!) -->
-    <div class="description">
-      {{ content }}
-    </div>
-
+  <div class="rec-grid">
+    {% for book_path in page.similar_books %}
+      {% assign book = site.books | where: "slug", book_path | first %}
+      {% if book %}
+      <a class="rec-card" href="{{ book.url }}">
+        <img src="{{ book.cover_image }}" alt="{{ book.title }} cover">
+        <div class="rec-card-title">{{ book.title }}</div>
+        <div class="rec-card-type">{{ book.type }}</div>
+      </a>
+      {% endif %}
+    {% endfor %}
   </div>
+</section>
+  
 </body>
 </html>
-
