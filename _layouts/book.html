@@ -15,22 +15,41 @@
       line-height: 1.6;
     }
 
-    /* ---------- Global Header ---------- */
-    header {
-      padding: 30px 40px;
+    /* ===============================
+       NEW TOP HEADER WITH NAVIGATION
+       =============================== */
+    .site-header {
       background: #faf8f4;
-      border-bottom: 1px solid #eee;
-      text-align: left;
+      border-bottom: 1px solid #e6e4df;
+      padding: 1.8rem 1rem;
+      text-align: center;
     }
-
-    header h1 {
-      font-size: 32px;
+    .site-header a {
+      text-decoration: none;
+      color: #222;
+    }
+    .site-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 2rem;
       margin: 0;
-      font-weight: 600;
       letter-spacing: 0.5px;
     }
+    .site-nav {
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .site-nav a {
+      margin: 0 1rem;
+      color: #555;
+      transition: color .2s;
+    }
+    .site-nav a:hover {
+      color: #b86b36;
+    }
 
-    /* ---------- Book Section ---------- */
+    /* ===============================
+       BOOK PAGE MAIN LAYOUT
+       =============================== */
     .book-container {
       max-width: 1000px;
       margin: 40px auto;
@@ -48,10 +67,23 @@
 
     .book-meta h2 {
       margin-top: 0;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 600;
+      font-family: "Playfair Display", Georgia, serif;
     }
 
+    .book-meta .author {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .meta-row {
+      margin: 0.4rem 0 1rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Tags (type + genre + extra tags) */
     .tag {
       display: inline-block;
       background: #e2ded7;
@@ -78,12 +110,14 @@
       font-size: 14px;
       transition: background 0.2s ease;
     }
-
     .download-buttons a:hover {
       background: #444;
     }
 
-    /* ---------- Recommendations Section ---------- */
+    /* ===============================
+       RECOMMENDATIONS — MATCH CAROUSEL CARDS
+       =============================== */
+
     .rec-section {
       max-width: 1100px;
       margin: 80px auto 40px;
@@ -94,43 +128,86 @@
       font-size: 26px;
       margin-bottom: 20px;
       font-weight: 600;
+      font-family: "Playfair Display", Georgia, serif;
     }
 
     .rec-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 25px;
     }
 
-    .rec-card {
-      background: #fff;
-      padding: 14px;
+    .feature-card {
+      background: white;
       border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease;
+      position: relative;
+      transition: transform 0.28s cubic-bezier(.2,.9,.3,1),
+                  box-shadow 0.28s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      z-index: 2;
     }
 
-    .rec-card:hover {
-      transform: scale(1.04);
+    .cover-wrapper {
+      position: relative;
     }
-
-    .rec-card img {
+    .cover-wrapper img {
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 10px;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #eee;
     }
 
-    .rec-card-title {
-      font-size: 15px;
-      margin: 6px 0 0;
+    .book-type {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(255,255,255,0.75);
+      color: #333;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
       font-weight: 600;
+      border: 1px solid rgba(0,0,0,0.1);
     }
 
-    .rec-card-type {
-      font-size: 12px;
-      color: #666;
-      margin-top: 2px;
+    .feature-card h4 {
+      margin: 0.8rem 0 0.3rem;
+      font-size: 1rem;
+    }
+    .feature-card p {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-link-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .download-buttons-small {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 3;
+    }
+    .download-buttons-small a {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: #f7f6f3;
+      color: #333;
+      text-decoration: none;
     }
 
   </style>
@@ -138,20 +215,37 @@
 
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>Acorn Editions</h1>
+  <!-- ===== NEW HEADER ===== -->
+  <header class="site-header">
+    <a href="/">
+      <h1 class="site-title">Acorn Editions</h1>
+    </a>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/novels.html">Novels</a>
+      <a href="/short-stories.html">Short Stories</a>
+      <a href="/about.html">About</a>
+    </nav>
   </header>
 
   <!-- ===== BOOK DETAILS ===== -->
   <section class="book-container">
+
     <div>
-      <img class="book-cover" src="{{ page.cover_image }}" alt="{{ page.title }} cover" />
+      <img class="book-cover"
+           src="{{ page.cover_image }}"
+           alt="{{ page.title }} cover" />
     </div>
 
     <div class="book-meta">
       <h2>{{ page.title }}</h2>
-      <p><strong>{{ page.author }}</strong></p>
+      <p class="author"><strong>{{ page.author }}</strong></p>
+
+      {% if page.year %}
+      <div class="meta-row">
+        <strong>Publication Year:</strong> {{ page.year }}
+      </div>
+      {% endif %}
 
       <div class="tags">
         <span class="tag">{{ page.type }}</span>
@@ -173,29 +267,43 @@
         {% endif %}
       </div>
     </div>
+
   </section>
 
-  <!-- ===== RECOMMENDATIONS ===== -->
+  <!-- ===== RECOMMENDATIONS / SIMILAR BOOKS ===== -->
   <section class="rec-section">
-  <h3>You Might Also Like</h3>
+    <h3>You Might Also Like</h3>
 
-  <div class="rec-grid">
-    {% for book_path in page.similar_books %}
-      {% assign book = site.books | where: "slug", book_path | first %}
-      {% if book %}
-      <a class="rec-card" href="{{ book.url }}">
-        <img src="{{ book.cover_image }}" alt="{{ book.title }} cover">
-        <div class="rec-card-title">{{ book.title }}</div>
-        <div class="rec-card-type">{{ book.type }}</div>
-      </a>
-      {% endif %}
-    {% endfor %}
-  </div>
-</section>
+    <div class="rec-grid">
+      {% for book_path in page.similar_books %}
+        {% assign book = site.books | where: "slug", book_path | first %}
+        {% if book %}
 
-  <pre style="padding:20px; background:#ffeeee; color:#333;">
-All known book slugs: {{ site.books | map: "slug" | join: ", " }}
-</pre>
+        <div class="feature-card">
+          <a class="card-link-overlay" href="{{ book.url }}"></a>
+
+          <div class="cover-wrapper">
+            <img src="{{ book.cover_image }}" alt="{{ book.title }} cover">
+            <div class="book-type">{{ book.type }}</div>
+          </div>
+
+          <h4>{{ book.title }}</h4>
+          <p>{{ book.author }}</p>
+
+          <div class="download-buttons-small">
+            {% if book.epub_file %}
+            <a href="{{ book.epub_file }}">EPUB</a>
+            {% endif %}
+            {% if book.pdf_file %}
+            <a href="{{ book.pdf_file }}">PDF</a>
+            {% endif %}
+          </div>
+        </div>
+
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
 
 </body>
 </html>
