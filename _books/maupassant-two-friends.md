@@ -15,7 +15,7 @@ cover_image: "/covers/maupassant-two-friends.png"
 epub_file: "/epubs/maupassant-two-friends.epub"
 pdf_file: "/pdfs/maupassant-two-friends.pdf"
 similar_books:
-  - maupassant-legend-of-mont-saint-michel
+  - maupassant-the-legend-of-mont-saint-michel
   - hardy-three-strangers
   - storm-immensee
 ---
