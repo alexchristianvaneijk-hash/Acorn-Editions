@@ -10,7 +10,7 @@ tags:
   - religion
 slug: maupassant-the-legend-of-mont-saint-michel
 year: 1882
-cover_image: "/covers/maupassant-the-legend-of-mont-saint-michel.png"
+cover_image: "/covers/maupassant-legend-of-mont-saint-michel.png"
 epub_file: "/epubs/maupassant-the-legend-of-mont-saint-michel.epub"
 pdf_file: "/pdfs/maupassant-the-legend-of-mont-saint-michel.pdf"
 similar_books:
