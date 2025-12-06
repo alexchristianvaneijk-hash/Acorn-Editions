@@ -209,6 +209,104 @@
   position: relative;
   z-index: 3;
 }
+/* ---------- FEATURED SECTION CLEANED ---------- */
+
+.featured-section {
+  max-width: 1100px;
+  margin: 3rem auto;
+  color: #222;
+  font-family: Georgia, serif;
+}
+
+.featured-heading {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+}
+
+.featured-subheading {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+}
+
+/* Main large feature */
+.featured-main {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  display: flex;
+  overflow: hidden;
+}
+
+.featured-main img {
+  width: 45%;
+  background: #fff;
+  object-fit: contain;
+}
+
+.featured-main .featured-text {
+  padding: 1.5rem;
+}
+
+/* Smaller stacked features */
+.featured-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.featured-side-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  display: flex;
+  overflow: hidden;
+}
+
+.featured-side-card img {
+  width: 35%;
+  background: #fff;
+  object-fit: contain;
+}
+
+.featured-side-card .featured-text {
+  padding: 1rem;
+}
+
+/* Buttons */
+.featured-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid #bbb;
+  text-decoration: none;
+  background: #f7f6f3;
+  color: #333;
+  font-size: 0.85rem;
+  margin-right: 0.4rem;
+  transition: background 0.18s ease;
+}
+.featured-btn:hover {
+  background: #ecebe8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+  .featured-main img,
+  .featured-side-card img {
+    width: 40%;
+  }
+}
 
     /* small screens: reduce card width so they fit comfortably */
     @media (max-width: 700px) {
@@ -373,79 +471,75 @@
   </section>
 
   <!-- FEATURED -->
-  <section>
-<div style="max-width: 1100px; margin: 3rem auto; font-family: Georgia, serif; color: #222;">
+<section class="featured-section">
 
-  <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; text-align:center; margin-bottom: 0.5rem;">
-    Featured
-  </h2>
-  <p style="text-align:center; color:#555; margin-bottom:2rem;">
+  <h2 class="featured-heading">Featured</h2>
+  <p class="featured-subheading">
     Curated highlights from our library — handpicked for style, depth, and enduring beauty.
   </p>
 
-  <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem;">
-    
+  <div class="featured-grid">
+
     <!-- MAIN FEATURE -->
-    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.1); overflow: hidden; display: flex;">
-      <img src="/covers/hardy-the-three-strangers.png" 
-           style="width: 45%; object-fit: cover;">
-      <div style="padding: 1.5rem;">
-        <div style="font-size: 0.8rem; text-transform: uppercase; color:#b86b36; letter-spacing: 1px; margin-bottom:0.5rem;">
+    <div class="featured-main">
+      <img src="/covers/hardy-the-three-strangers.png" alt="The Three Strangers cover">
+      <div class="featured-text">
+        <div style="font-size: 0.8rem; color:#b86b36; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
           Editor’s Spotlight
         </div>
-        <h3 style="margin: 0 0 0.2rem; font-size: 1.4rem;">The Three Strangers</h3>
-        <p style="margin: 0 0 1rem; color:#555;">Thomas Hardy</p>
 
-        <p style="line-height: 1.55; color:#444; margin-bottom: 1.2rem;">
-          The Three Strangers is a quietly thrilling short story, told with Thomas Hardy’s signature eye for setting and character, offering a glimpse into the strange intersections of fate in the English countryside.
+        <h3 style="margin:0 0 0.2rem; font-size:1.4rem;">The Three Strangers</h3>
+        <p style="margin:0 0 1rem; color:#555;">Thomas Hardy</p>
+
+        <p style="line-height:1.55; color:#444; margin-bottom:1.2rem;">
+          A quietly thrilling short story told with Hardy’s signature sense of atmosphere and character. 
+          A chance encounter in rural England unfolds into a strange and unforgettable evening.
         </p>
 
-        <div>
-          <a href="/epubs/hardy-the-three-strangers" style="padding:0.4rem 0.9rem; border-radius: 20px; border:1px solid #bbb; margin-right:0.4rem; text-decoration:none; color:#333; background:#f7f6f3;">EPUB</a>
-          <a href="/pdfs/hardy-the-three-strangers" style="padding:0.4rem 0.9rem; border-radius: 20px; border:1px solid #bbb; text-decoration:none; color:#333; background:#f7f6f3;">PDF</a>
-        </div>
+        <a href="/epubs/hardy-the-three-strangers.epub" class="featured-btn">EPUB</a>
+        <a href="/pdfs/hardy-the-three-strangers.pdf" class="featured-btn">PDF</a>
       </div>
     </div>
 
-    <!-- RIGHT SIDE STACK -->
-    <div style="display: flex; flex-direction: column; gap: 2rem;">
+    <!-- RIGHT SIDEBAR -->
+    <div class="featured-side-column">
 
       <!-- FEATURE 2 -->
-      <div style="background: white; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.08); overflow: hidden; display: flex;">
-        <img src="/covers/storm-immensee.png"
-             style="width: 35%; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <h4 style="margin:0 0 0.2rem; font-size: 1.1rem;">Immensee</h4>
-          <p style="margin: 0 0 0.7rem; color:#555;">Theodor Storm</p>
+      <div class="featured-side-card">
+        <img src="/covers/storm-immensee.png" alt="Immensee cover">
+        <div class="featured-text">
+          <h4 style="margin:0 0 0.2rem;">Immensee</h4>
+          <p style="margin:0 0 0.7rem; color:#555;">Theodor Storm</p>
+
           <p style="font-size:0.9rem; color:#444; line-height:1.5; margin-bottom:1rem;">
-            Storm's classic novella is milestone in German literature, blending Realism and Romanticism to weave a poignant tale about the passing of time and lost chances.
+            A landmark of German Romanticism and Realism — a tender reflection on lost love and the bittersweetness of memory.
           </p>
-          <a href="/epubs/storm-immensee" style="padding:0.3rem 0.7rem; border-radius: 20px; border:1px solid #bbb; text-decoration:none; color:#333; background:#f7f6f3; font-size:0.8rem;">EPUB</a>
-          <a href="/pdfs/storm-immensee" style="padding:0.3rem 0.7rem; border-radius: 20px; border:1px solid #bbb; text-decoration:none; color:#333; background:#f7f6f3; font-size:0.8rem;">PDF</a>
+
+          <a href="/epubs/storm-immensee.epub" class="featured-btn">EPUB</a>
+          <a href="/pdfs/storm-immensee.pdf" class="featured-btn">PDF</a>
         </div>
       </div>
 
       <!-- FEATURE 3 -->
-      <div style="background: white; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.08); overflow: hidden; display: flex;">
-        <img src="/covers/maupassant-two-friends.png"
-             style="width: 35%; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <h4 style="margin:0 0 0.2rem; font-size: 1.1rem;">Two Friends</h4>
-          <p style="margin: 0 0 0.7rem; color:#555;">Guy de Maupassant</p>
+      <div class="featured-side-card">
+        <img src="/covers/maupassant-two-friends.png" alt="Two Friends cover">
+        <div class="featured-text">
+          <h4 style="margin:0 0 0.2rem;">Two Friends</h4>
+          <p style="margin:0 0 0.7rem; color:#555;">Guy de Maupassant</p>
+
           <p style="font-size:0.9rem; color:#444; line-height:1.5; margin-bottom:1rem;">
-            With his signature realism and sharp irony, Guy de Maupassant delivers a poignant reflection on loyalty, innocence, and the harsh cost of war.
+            A moving and sharply observed tale of friendship and loyalty set against the backdrop of war-torn France.
           </p>
-          <a href="/epubs/maupassant-two-friends" style="padding:0.3rem 0.7rem; border-radius: 20px; border:1px solid #bbb; text-decoration:none; color:#333; background:#f7f6f3; font-size:0.8rem;">EPUB</a>
-          <a href="/epubs/maupassant-two-friends" style="padding:0.3rem 0.7rem; border-radius: 20px; border:1px solid #bbb; text-decoration:none; color:#333; background:#f7f6f3; font-size:0.8rem;">PDF</a>
+
+          <a href="/epubs/maupassant-two-friends.epub" class="featured-btn">EPUB</a>
+          <a href="/pdfs/maupassant-two-friends.pdf" class="featured-btn">PDF</a>
         </div>
       </div>
 
     </div>
   </div>
 
-</div>
-
-  </section>
+</section>
 
   <footer>
     © Acorn Editions · Curated public domain literature for the modern reader.
