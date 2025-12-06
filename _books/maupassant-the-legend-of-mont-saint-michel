@@ -1,0 +1,21 @@
+---
+layout: book
+title: "The Legend of Mont-Saint-Michel"
+author: "Guy de Maupassant"
+type: "Short Story"
+genre: "Realism"
+tags:
+  - french literature
+  - folk tale
+  - religion
+slug: maupassant-the-legend-of-mont-saint-michel
+year: 1887
+cover_image: "/covers/maupassant-the-legend-of-mont-saint-michel.png"
+epub_file: "/epubs/maupassant-the-legend-of-mont-saint-michel.epub"
+pdf_file: "/pdfs/maupassant-the-legend-of-mont-saint-michel.pdf"
+similar_books:
+  - hardy-three-strangers
+  - maupassant-two-friends
+---
+
+Description to come
