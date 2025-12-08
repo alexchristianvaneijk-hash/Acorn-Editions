@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Acorn Editions</title>
   <style>
+    /* ---------- HERO BANNER ---------- */
+.hero-banner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
     /* ---------- BASE STYLES ---------- */
     body {
       margin: 0;
@@ -318,7 +330,11 @@
 </head>
 <body>
   <header>
-    <h1>Acorn Editions</h1>
+    <div class="hero-banner">
+      <a href="/index.html">
+        <img src="images/banner.jpg" alt="Acorn Editions Banner">
+      </a>
+    </div>
     <p>Literary classics, lovingly reprinted and freely shared.</p>
   </header>
 
