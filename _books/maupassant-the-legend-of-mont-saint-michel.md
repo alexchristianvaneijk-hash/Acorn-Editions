@@ -14,8 +14,8 @@ cover_image: "/covers/maupassant-legend-of-mont-saint-michel.png"
 epub_file: "/epubs/maupassant-the-legend-of-mont-saint-michel.epub"
 pdf_file: "/pdfs/maupassant-the-legend-of-mont-saint-michel.pdf"
 similar_books:
-  - hardy-three-strangers
+  - hardy-the-three-strangers
   - maupassant-two-friends
 ---
 
-Description to come
+A local peasant tells a visitor to the magnificent island abbey of Mont-Saint-Michel how the region's patron saint tricked the devil out of Normandy in a way only a salt-of-the-earth native Norman could imagine.
