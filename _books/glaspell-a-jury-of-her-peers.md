@@ -1,7 +1,10 @@
 ---
 layout: book
 title: "A Jury of her Peers"
+---
+
 author: "Susan Glaspell"
+category: "Fiction"
 type: "Short Story"
 genre: ""
 tags:
@@ -17,6 +20,4 @@ pdf_file: "/pdfs/glaspell-a-jury-of-her-peers.pdf"
 similar_books:
   - hardy-the-three-strangers
   - chekhov-the-kiss
----
-
-Based on a real murder covered by Susan Glaspell as a reporter, A Jury of her Peers follows Martha Hale as she unexpectedly uncovers the truth in a rural investigation that the men of the town would never have been able to solve.
+Description: "Based on a real murder covered by Susan Glaspell as a reporter, A Jury of her Peers follows Martha Hale as she unexpectedly uncovers the truth in a rural investigation that the men of the town would never have been able to solve."
