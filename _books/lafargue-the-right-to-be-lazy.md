@@ -4,6 +4,7 @@ title: The Right to be Lazy
 author: Paul Lafargue
 category: Non-fiction
 type: Politics
+genre: Essay
 tags:
   - marxism
   - work
