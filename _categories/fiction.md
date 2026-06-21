@@ -1,7 +1,7 @@
 ---
 layout: catalog
 title: Fiction
-slug: /fiction/
+permalink: /fiction/
 category: fiction
 ---
 
