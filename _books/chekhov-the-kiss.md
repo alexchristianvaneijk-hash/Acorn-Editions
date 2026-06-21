@@ -2,7 +2,7 @@
 layout: book
 title: "The Kiss"
 author: "Anton Chekhov"
-category: "Fiction"
+category: fiction
 type: "Novel"
 genre: "Realism"
 tags:
