@@ -2,6 +2,7 @@
 layout: book
 title: "The Legend of Mont-Saint-Michel"
 author: "Guy de Maupassant"
+category: "Fiction"
 type: "Short Story"
 genre: "Realism"
 tags:
@@ -16,6 +17,4 @@ pdf_file: "/pdfs/maupassant-the-legend-of-mont-saint-michel.pdf"
 similar_books:
   - hardy-the-three-strangers
   - maupassant-two-friends
----
-
-A local peasant tells a visitor to the magnificent island abbey of Mont-Saint-Michel how the region's patron saint tricked the devil out of Normandy in a way only a salt-of-the-earth native Norman could imagine.
+Description: "A local peasant tells a visitor to the magnificent island abbey of Mont-Saint-Michel how the region's patron saint tricked the devil out of Normandy in a way only a salt-of-the-earth native Norman could imagine."
