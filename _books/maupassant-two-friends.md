@@ -2,6 +2,7 @@
 layout: book
 title: "Two Friends"
 author: "Guy de Maupassant"
+category: "Fiction"
 type: "Short Story"
 genre: "Realism"
 tags:
@@ -18,6 +19,4 @@ similar_books:
   - maupassant-the-legend-of-mont-saint-michel
   - hardy-the-three-strangers
   - storm-immensee
----
-
-Amidst the siege of Paris by Prussian forces in 1871, two friends meet and hatch a plan to sneak out in search of simpler pleasures. With his signature realism and sharp irony, Guy de Maupassant delivers a poignant reflection on loyalty, innocence, and the harsh cost of war.
+description: "Amidst the siege of Paris by Prussian forces in 1871, two friends meet and hatch a plan to sneak out in search of simpler pleasures. With his signature realism and sharp irony, Guy de Maupassant delivers a poignant reflection on loyalty, innocence, and the harsh cost of war."
