@@ -1,87 +1,418 @@
 ---
-layout: default
----
+
+## layout: default
 
 <style>
-.catalog-wrap{
-    max-width:1200px;
-    margin:0 auto;
-    padding:60px 40px;
+
+body {
+  background:#fdfcf9;
+  font-family:Georgia, serif;
 }
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  background:#faf8f4;
+  padding:20px 0;
+  text-align:center;
+  border-bottom:1px solid #e8e4dd;
+}
+
+.site-header .logo-link img{
+  height:130px;
+  max-width:100%;
+}
+
+.site-header p{
+  color:#555;
+}
+
+nav{
+  text-align:center;
+  padding:1rem 0;
+  border-top:1px solid #e0dfdb;
+  border-bottom:1px solid #e0dfdb;
+  background:#f8f7f3;
+}
+
+nav a{
+  margin:0 1.5rem;
+  color:#444;
+}
+
+nav a:hover{
+  color:#b86b36;
+}
+
+/* ---------- CATALOG ---------- */
+
+.catalog-container{
+  max-width:1400px;
+  margin:40px auto;
+  padding:0 30px;
+}
+
+.catalog-layout{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:50px;
+}
+
+.catalog-sidebar{
+  position:sticky;
+  top:20px;
+  align-self:start;
+}
+
+.catalog-sidebar h3{
+  margin-top:0;
+  margin-bottom:12px;
+  font-size:0.95rem;
+}
+
+.catalog-search{
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  background:white;
+  margin-bottom:30px;
+  font-family:inherit;
+}
+
+.filter-group{
+  margin-bottom:30px;
+}
+
+.filter-group ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.filter-group li{
+  margin-bottom:6px;
+}
+
+.filter-btn{
+  border:none;
+  background:none;
+  padding:0;
+  cursor:pointer;
+  text-align:left;
+  font-family:inherit;
+  color:#555;
+}
+
+.filter-btn:hover{
+  color:#b86b36;
+}
+
+.filter-btn.active{
+  color:#b86b36;
+  font-weight:bold;
+}
+
+/* ---------- GRID ---------- */
 
 .catalog-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:50px 30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:24px;
 }
 
-.book{
-    transition:0.2s ease;
+/* ---------- HOMEPAGE CARD STYLE ---------- */
+
+.feature-card{
+  background:white;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  text-align:center;
+  padding-bottom:1rem;
+  overflow:hidden;
+  position:relative;
+  transition:.28s;
 }
 
-.book:hover{
-    transform:translateY(-4px);
+.feature-card:hover{
+  transform:translateY(-6px) scale(1.04);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
 }
 
-.book a{
-    text-decoration:none;
-    color:inherit;
+.card-link-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
 }
 
-.cover{
-    aspect-ratio:2/3;
-    margin-bottom:12px;
+.cover-wrapper{
+  position:relative;
 }
 
-.cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.cover-wrapper img{
+  width:100%;
+  display:block;
 }
 
-.title{
-    font-size:15px;
-    margin-bottom:4px;
+.book-type{
+  position:absolute;
+  bottom:8px;
+  left:8px;
+  background:rgba(255,255,255,.75);
+  padding:.25rem .6rem;
+  border-radius:4px;
+  font-size:.75rem;
+  font-weight:600;
 }
 
-.author{
-    font-size:13px;
-    color:#666;
-    margin-bottom:8px;
+.feature-card h4{
+  margin:.8rem 0 .3rem;
+  padding:0 .5rem;
 }
 
-.search{
-    width:100%;
-    max-width:300px;
-    padding:10px;
-    border:1px solid #ddd;
-    margin-bottom:40px;
-    font-family:inherit;
+.feature-card p{
+  color:#555;
+  font-size:.85rem;
+  padding:0 .5rem;
 }
-.hidden{display:none;}
+
+.download-buttons{
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:.6rem;
+  position:relative;
+  z-index:3;
+}
+
+.download-btn{
+  font-size:.75rem;
+  padding:.3rem .7rem;
+  border-radius:20px;
+  border:1px solid #ccc;
+  background:#f7f6f3;
+}
+
+.download-btn:hover{
+  background:#e8e7e3;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:900px){
+
+  .catalog-layout{
+    grid-template-columns:1fr;
+  }
+
+  .catalog-sidebar{
+    position:static;
+  }
+
+}
+
 </style>
 
-<div class="catalog-wrap">
+<header class="site-header">
+  <a href="/" class="logo-link">
+    <img src="/covers/hero-banner.png" alt="Acorn Editions">
+  </a>
+  <p>Literary classics, lovingly reprinted and freely shared.</p>
+</header>
 
-<h1>{{ page.title }}</h1>
+<nav>
+  <a href="/">Home</a>
+  <a href="/fiction/">Fiction</a>
+  <a href="/non-fiction/">Non-Fiction</a>
+  <a href="/about/">About</a>
+</nav>
 
-<input id="search" class="search" placeholder="Search books...">
+<div class="catalog-container">
 
-<div class="catalog-grid">
+  <div class="catalog-layout">
 
-{{ content }}
+```
+<aside class="catalog-sidebar">
 
-</div>
+  <h3>Search</h3>
+
+  <input
+    id="searchInput"
+    class="catalog-search"
+    placeholder="Search books..."
+  >
+
+  <div class="filter-group">
+
+    <h3>Genres</h3>
+
+    <ul>
+
+      <li>
+        <button
+          class="filter-btn genre-btn active"
+          data-genre="">
+          All Genres
+        </button>
+      </li>
+
+      {% assign genres = site.books | map: "genre" | uniq | sort %}
+
+      {% for genre in genres %}
+      {% if genre != "" %}
+
+      <li>
+        <button
+          class="filter-btn genre-btn"
+          data-genre="{{ genre | downcase }}">
+          {{ genre }}
+        </button>
+      </li>
+
+      {% endif %}
+      {% endfor %}
+
+    </ul>
+
+  </div>
+
+  <div class="filter-group">
+
+    <h3>Tags</h3>
+
+    <ul>
+
+    {% assign all_tags = "" | split: "" %}
+
+    {% for book in site.books %}
+      {% assign all_tags = all_tags | concat: book.tags %}
+    {% endfor %}
+
+    {% assign all_tags = all_tags | uniq | sort %}
+
+    {% for tag in all_tags %}
+
+      <li>
+        <button
+          class="filter-btn tag-btn"
+          data-tag="{{ tag | downcase }}">
+          {{ tag }}
+        </button>
+      </li>
+
+    {% endfor %}
+
+    </ul>
+
+  </div>
+
+</aside>
+
+<section class="catalog-grid">
+
+  {{ content }}
+
+</section>
+```
+
+  </div>
 
 </div>
 
 <script>
-const input = document.getElementById("search");
-input.addEventListener("input", function(){
-    const term = this.value.toLowerCase();
-    document.querySelectorAll(".book").forEach(b=>{
-        const text = b.dataset.search;
-        b.classList.toggle("hidden", !text.includes(term));
+
+const searchInput =
+document.getElementById("searchInput");
+
+let activeGenre = "";
+let activeTag = "";
+
+function filterBooks(){
+
+  const search =
+    searchInput.value.toLowerCase();
+
+  document
+    .querySelectorAll(".feature-card")
+    .forEach(card => {
+
+      const text =
+        card.dataset.search;
+
+      const genre =
+        card.dataset.genre;
+
+      const tags =
+        card.dataset.tags;
+
+      const matchesSearch =
+        text.includes(search);
+
+      const matchesGenre =
+        !activeGenre ||
+        genre.includes(activeGenre);
+
+      const matchesTag =
+        !activeTag ||
+        tags.includes(activeTag);
+
+      card.classList.toggle(
+        "hidden",
+        !(matchesSearch &&
+          matchesGenre &&
+          matchesTag)
+      );
+
     });
+
+}
+
+searchInput.addEventListener(
+  "input",
+  filterBooks
+);
+
+document
+.querySelectorAll(".genre-btn")
+.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    document
+      .querySelectorAll(".genre-btn")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    activeGenre =
+      btn.dataset.genre;
+
+    filterBooks();
+
+  });
+
 });
+
+document
+.querySelectorAll(".tag-btn")
+.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    document
+      .querySelectorAll(".tag-btn")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    activeTag =
+      btn.dataset.tag;
+
+    filterBooks();
+
+  });
+
+});
+
 </script>
