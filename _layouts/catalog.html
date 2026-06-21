@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<style>
+.catalog-wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:60px 40px;
+}
+
+.catalog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:50px 30px;
+}
+
+.book{
+    transition:0.2s ease;
+}
+
+.book:hover{
+    transform:translateY(-4px);
+}
+
+.book a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.cover{
+    aspect-ratio:2/3;
+    margin-bottom:12px;
+}
+
+.cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.title{
+    font-size:15px;
+    margin-bottom:4px;
+}
+
+.author{
+    font-size:13px;
+    color:#666;
+    margin-bottom:8px;
+}
+
+.search{
+    width:100%;
+    max-width:300px;
+    padding:10px;
+    border:1px solid #ddd;
+    margin-bottom:40px;
+    font-family:inherit;
+}
+.hidden{display:none;}
+</style>
+
+<div class="catalog-wrap">
+
+<h1>{{ page.title }}</h1>
+
+<input id="search" class="search" placeholder="Search books...">
+
+<div class="catalog-grid">
+
+{{ content }}
+
+</div>
+
+</div>
+
+<script>
+const input = document.getElementById("search");
+input.addEventListener("input", function(){
+    const term = this.value.toLowerCase();
+    document.querySelectorAll(".book").forEach(b=>{
+        const text = b.dataset.search;
+        b.classList.toggle("hidden", !text.includes(term));
+    });
+});
+</script>
