@@ -2,7 +2,7 @@
 layout: book
 title: The Right to be Lazy
 author: Paul Lafargue
-category: Non-fiction
+category: non-fiction
 type: Politics
 genre: Essay
 tags:
