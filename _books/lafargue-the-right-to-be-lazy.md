@@ -1,9 +1,9 @@
 ---
 layout: book
-title: "The Right to be Lazy"
-author: "Paul Lafargue"
-category: "Non-fiction"
-type: "Politics"
+title: The Right to be Lazy
+author: Paul Lafargue
+category: Non-fiction
+type: Politics
 tags:
   - marxism
   - work
