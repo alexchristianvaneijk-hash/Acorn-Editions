@@ -20,3 +20,4 @@ similar_books:
   - hardy-the-three-strangers
   - storm-immensee
 description: "Amidst the siege of Paris by Prussian forces in 1871, two friends meet and hatch a plan to sneak out in search of simpler pleasures. With his signature realism and sharp irony, Guy de Maupassant delivers a poignant reflection on loyalty, innocence, and the harsh cost of war."
+---
