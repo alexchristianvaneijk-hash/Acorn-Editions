@@ -3,7 +3,7 @@ layout: book
 title: "Immensee"
 author: "Theodor Storm"
 category: "Fiction"
-type: "Novella"
+type: fiction
 genre: ""
 tags:
   - german literature
