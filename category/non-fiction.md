@@ -5,7 +5,7 @@ permalink: /non-fiction/
 category: "Non-fiction"
 ---
 
-{% assign books = site.books | where: "category", "non-fiction" %}
+{% assign books = site.books | where: "category", "Non-fiction" %}
 
 {% for book in books %}
 
