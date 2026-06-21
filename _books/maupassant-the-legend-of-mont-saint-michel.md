@@ -2,7 +2,7 @@
 layout: book
 title: "The Legend of Mont-Saint-Michel"
 author: "Guy de Maupassant"
-category: "Fiction"
+category: fiction
 type: "Short Story"
 genre: "Realism"
 tags:
