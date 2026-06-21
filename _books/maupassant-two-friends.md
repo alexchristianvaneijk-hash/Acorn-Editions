@@ -2,7 +2,7 @@
 layout: book
 title: "Two Friends"
 author: "Guy de Maupassant"
-category: "Fiction"
+category: fiction
 type: "Short Story"
 genre: "Realism"
 tags:
