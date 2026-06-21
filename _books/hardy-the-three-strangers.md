@@ -2,7 +2,7 @@
 layout: book
 title: "The Three Strangers"
 author: "Thomas Hardy"
-category: "Fiction"
+category: fiction
 type: "Short Story"
 genre: "Realism"
 tags:
