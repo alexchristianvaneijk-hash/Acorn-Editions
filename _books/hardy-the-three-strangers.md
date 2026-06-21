@@ -2,6 +2,7 @@
 layout: book
 title: "The Three Strangers"
 author: "Thomas Hardy"
+category: "Fiction"
 type: "Short Story"
 genre: "Realism"
 tags:
@@ -22,6 +23,4 @@ featured: true
 featured_description: The Three Strangers is a quietly thrilling short story, told with Thomas Hardy’s signature eye for setting and character, offering a glimpse into the strange intersections of fate in the English countryside.
 ---
 
-On a stormy evening in rural Wessex, a humble christening gathering is interrupted by the sudden arrival of three mysterious strangers, each one casting a different shadow over the festivities. 
-
-The Three Strangers is a quietly thrilling short story, told with Thomas Hardy’s signature eye for setting and character, offering a glimpse into the strange intersections of fate in the English countryside.
+Description: "On a stormy evening in rural Wessex, a humble christening gathering is interrupted by the sudden arrival of three mysterious strangers, each one casting a different shadow over the festivities. The Three Strangers is a quietly thrilling short story, told with Thomas Hardy’s signature eye for setting and character, offering a glimpse into the strange intersections of fate in the English countryside."
