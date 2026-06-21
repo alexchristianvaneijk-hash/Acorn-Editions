@@ -2,7 +2,7 @@
 layout: book
 title: "A Jury of her Peers"
 author: "Susan Glaspell"
-category: "Fiction"
+category: fiction
 type: "Short Story"
 genre: ""
 tags:
