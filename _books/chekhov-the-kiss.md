@@ -18,5 +18,4 @@ pdf_file: "/pdfs/chekhov-the-kiss.pdf"
 similar_books:
   - hardy-three-strangers
   - maupassant-two-friends
----
 decscription: "When an unremarkable army officer, Ryabovich, receives an accidental kiss at a dimly lit gathering, he finds himself consumed by the possibilities of romance and fate. But was it truly meant for him?"
