@@ -19,5 +19,5 @@ similar_books:
   - hardy-three-strangers
   - maupassant-two-friends
   - chekhov-the-kiss
----
 description: "The ageing Reinhardt reflects on his youth, recalling the tender yet unfulfilled love he once shared with Elisabeth, a childhood companion who would ultimately choose another. Through delicate prose and evocative landscapes, Theodor Storm weaves a poignant meditiation on lost chances and the passage of time."
+---
