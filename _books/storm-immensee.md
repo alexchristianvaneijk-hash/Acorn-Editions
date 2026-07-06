@@ -2,9 +2,9 @@
 layout: book
 title: "Immensee"
 author: "Theodor Storm"
-category: "Fiction"
-type: fiction
-genre: ""
+category: Fiction
+type: novella
+genre: "Romance"
 tags:
   - german literature
   - love
