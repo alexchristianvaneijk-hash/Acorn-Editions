@@ -1,0 +1,21 @@
+---
+layout: book
+title: The Dominant Idea
+author: Voltairine de Cleyre
+category: non-fiction
+type: Politics
+genre: Essay
+tags:
+  - anarchism
+  - ideology
+  - politics
+slug: de-cleyre-the-dominant-idea
+year: 1910
+cover_image: "/covers/lafargue-the-right-to-be-lazy.png"
+epub_file: "/epubs/lafargue-the-right-to-be-lazy.epub"
+pdf_file: "/pdfs/lafargue-the-right-to-be-lazy.pdf"
+similar_books:
+  - plekhanov-the-role-of-the-individual
+  - lafargue-the-right-to-be-lazy
+description: Lorem ipsum (Coming soon)
+---
