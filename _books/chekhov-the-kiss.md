@@ -3,7 +3,7 @@ layout: book
 title: "The Kiss"
 author: "Anton Chekhov"
 category: fiction
-type: "Novel"
+type: Novella
 genre: "Realism"
 tags:
   - russian literature
