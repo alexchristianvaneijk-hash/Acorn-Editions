@@ -52,27 +52,18 @@ nav a:hover{
   display:grid;
   grid-template-columns:260px 1fr;
   gap:50px;
+  align-items:start;
 }
 
 .catalog-sidebar{
   position:sticky;
   top:20px;
-  align-self:start;
 }
 
 .catalog-sidebar h3{
   margin-top:0;
   margin-bottom:12px;
   font-size:0.95rem;
-}
-
-.catalog-search{
-  width:100%;
-  padding:10px;
-  border:1px solid #ddd;
-  background:white;
-  margin-bottom:30px;
-  font-family:inherit;
 }
 
 .filter-group{
@@ -106,6 +97,22 @@ nav a:hover{
 .filter-btn.active{
   color:#b86b36;
   font-weight:bold;
+}
+
+/* ---------- MAIN COLUMN (search + grid) ---------- */
+
+.catalog-main{
+  min-width:0; /* prevents grid track from overflowing on wide cards */
+}
+
+.catalog-search{
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  background:white;
+  margin-bottom:30px;
+  font-family:inherit;
+  box-sizing:border-box;
 }
 
 /* ---------- GRID ---------- */
@@ -225,164 +232,123 @@ nav a:hover{
 </nav>
 
 <div class="catalog-container">
-
   <div class="catalog-layout">
 
-```
-<aside class="catalog-sidebar">
+    <aside class="catalog-sidebar">
 
-  <h3>Search</h3>
+      <div class="filter-group">
 
-  <input
-    id="searchInput"
-    class="catalog-search"
-    placeholder="Search books..."
-  >
+        <h3>Genres</h3>
 
-  <div class="filter-group">
+        <ul>
 
-    <h3>Genres</h3>
+          <li>
+            <button class="filter-btn genre-btn active" data-genre="">
+              All Genres
+            </button>
+          </li>
 
-    <ul>
+          {% assign genres = site.books | map: "genre" | uniq | sort %}
 
-      <li>
-        <button
-          class="filter-btn genre-btn active"
-          data-genre="">
-          All Genres
-        </button>
-      </li>
+          {% for genre in genres %}
+          {% if genre != "" %}
 
-      {% assign genres = site.books | map: "genre" | uniq | sort %}
+          <li>
+            <button class="filter-btn genre-btn" data-genre="{{ genre | downcase }}">
+              {{ genre }}
+            </button>
+          </li>
 
-      {% for genre in genres %}
-      {% if genre != "" %}
+          {% endif %}
+          {% endfor %}
 
-      <li>
-        <button
-          class="filter-btn genre-btn"
-          data-genre="{{ genre | downcase }}">
-          {{ genre }}
-        </button>
-      </li>
+        </ul>
 
-      {% endif %}
-      {% endfor %}
+      </div>
 
-    </ul>
+      <div class="filter-group">
 
-  </div>
+        <h3>Tags</h3>
 
-  <div class="filter-group">
+        <ul>
 
-    <h3>Tags</h3>
+        {% assign all_tags = "" | split: "" %}
 
-    <ul>
+        {% for book in site.books %}
+          {% assign all_tags = all_tags | concat: book.tags %}
+        {% endfor %}
 
-    {% assign all_tags = "" | split: "" %}
+        {% assign all_tags = all_tags | uniq | sort %}
 
-    {% for book in site.books %}
-      {% assign all_tags = all_tags | concat: book.tags %}
-    {% endfor %}
+        {% for tag in all_tags %}
 
-    {% assign all_tags = all_tags | uniq | sort %}
+          <li>
+            <button class="filter-btn tag-btn" data-tag="{{ tag | downcase }}">
+              {{ tag }}
+            </button>
+          </li>
 
-    {% for tag in all_tags %}
+        {% endfor %}
 
-      <li>
-        <button
-          class="filter-btn tag-btn"
-          data-tag="{{ tag | downcase }}">
-          {{ tag }}
-        </button>
-      </li>
+        </ul>
 
-    {% endfor %}
+      </div>
 
-    </ul>
+    </aside>
 
-  </div>
+    <div class="catalog-main">
 
-</aside>
+      <input id="searchInput" class="catalog-search" placeholder="Search books...">
 
-<section class="catalog-grid">
+      <section class="catalog-grid">
+        {{ content }}
+      </section>
 
-  {{ content }}
-
-</section>
-```
+    </div>
 
   </div>
-
 </div>
 
 <script>
 
-const searchInput =
-document.getElementById("searchInput");
+const searchInput = document.getElementById("searchInput");
 
 let activeGenre = "";
 let activeTag = "";
 
 function filterBooks(){
 
-  const search =
-    searchInput.value.toLowerCase();
+  const search = searchInput.value.toLowerCase();
 
-  document
-    .querySelectorAll(".feature-card")
-    .forEach(card => {
+  document.querySelectorAll(".feature-card").forEach(card => {
 
-      const text =
-        card.dataset.search;
+    const text = card.dataset.search;
+    const genre = card.dataset.genre;
+    const tags = card.dataset.tags;
 
-      const genre =
-        card.dataset.genre;
+    const matchesSearch = text.includes(search);
+    const matchesGenre = !activeGenre || genre.includes(activeGenre);
+    const matchesTag = !activeTag || tags.includes(activeTag);
 
-      const tags =
-        card.dataset.tags;
+    card.classList.toggle(
+      "hidden",
+      !(matchesSearch && matchesGenre && matchesTag)
+    );
 
-      const matchesSearch =
-        text.includes(search);
-
-      const matchesGenre =
-        !activeGenre ||
-        genre.includes(activeGenre);
-
-      const matchesTag =
-        !activeTag ||
-        tags.includes(activeTag);
-
-      card.classList.toggle(
-        "hidden",
-        !(matchesSearch &&
-          matchesGenre &&
-          matchesTag)
-      );
-
-    });
+  });
 
 }
 
-searchInput.addEventListener(
-  "input",
-  filterBooks
-);
+searchInput.addEventListener("input", filterBooks);
 
-document
-.querySelectorAll(".genre-btn")
-.forEach(btn => {
+document.querySelectorAll(".genre-btn").forEach(btn => {
 
   btn.addEventListener("click", () => {
 
-    document
-      .querySelectorAll(".genre-btn")
-      .forEach(b => b.classList.remove("active"));
-
+    document.querySelectorAll(".genre-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    activeGenre =
-      btn.dataset.genre;
+    activeGenre = btn.dataset.genre;
 
     filterBooks();
 
@@ -390,20 +356,14 @@ document
 
 });
 
-document
-.querySelectorAll(".tag-btn")
-.forEach(btn => {
+document.querySelectorAll(".tag-btn").forEach(btn => {
 
   btn.addEventListener("click", () => {
 
-    document
-      .querySelectorAll(".tag-btn")
-      .forEach(b => b.classList.remove("active"));
-
+    document.querySelectorAll(".tag-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    activeTag =
-      btn.dataset.tag;
+    activeTag = btn.dataset.tag;
 
     filterBooks();
 
