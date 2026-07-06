@@ -1,0 +1,23 @@
+---
+layout: book
+title: Clochette
+author: Guy de Maupassant
+category: fiction
+type: Short Story
+genre: Realism
+tags:
+  - french literature
+  - ageing
+  - society
+  - family
+slug: maupassant-clochette
+year: 1886
+cover_image: "/covers/maupassant-clochette.png"
+epub_file: "/epubs/maupassant-clochette.epub"
+pdf_file: "/pdfs/maupassant-clochette.pdf"
+similar_books:
+  - hardy-three-strangers
+  - maupassant-two-friends
+  - maupassant-the-legend-of-mont-saint-michel
+description: Lorem ipsum (Coming soon)
+---
