@@ -1,0 +1,22 @@
+---
+layout: book
+title: On the Role of the Individual in History
+author: Georgy Plekhanov
+category: non-fiction
+type: History
+genre: Essay
+tags:
+  - marxism
+  - history
+  - historiography
+  - dialectics
+slug: plekhanov-the-role-of-the-individual
+year: 1883
+cover_image: "/covers/plekhanov-the-role-of-the-individual.png"
+epub_file: "/epubs/plekhanov-the-role-of-the-individual.epub"
+pdf_file: "/pdfs/plekhanov-the-role-of-the-individual.pdf"
+similar_books:
+  - lafargue-the-right-to-be-lazy
+  - de-cleyre-the-dominant-idea
+description: TBD
+---
