@@ -3,6 +3,7 @@ layout: catalog
 title: Non-Fiction
 permalink: /non-fiction/
 category: non-fiction
+theme: main
 ---
 
 {% assign books = site.books | where: "category", "non-fiction" %}
