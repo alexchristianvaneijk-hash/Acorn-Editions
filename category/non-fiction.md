@@ -9,7 +9,7 @@ category: non-fiction
 
 {% for book in books %}
 
-<div class="feature-card">
+<div class="feature-card"
      data-genre="{{ book.genre | downcase }}"
      data-tags="{{ book.tags | join: ' ' | downcase }}"
      data-search="{{ book.title | downcase }} {{ book.author | downcase }} {{ book.description | downcase }} {{ book.tags | join: ' ' | downcase }}">
