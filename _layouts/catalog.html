@@ -236,6 +236,20 @@ nav a:hover{
 
     <aside class="catalog-sidebar">
 
+      {% comment %}
+        Change "category" below to whatever front-matter field
+        your book files use to mark them as fiction / non-fiction
+        (e.g. "type" or "section"), if it isn't "category".
+        If page.category is blank (e.g. on a page showing every
+        book), no filtering is applied and all books are used.
+      {% endcomment %}
+      {% assign page_category = page.category %}
+      {% if page_category %}
+        {% assign scoped_books = site.books | where: "category", page_category %}
+      {% else %}
+        {% assign scoped_books = site.books %}
+      {% endif %}
+
       <div class="filter-group">
 
         <h3>Genres</h3>
@@ -248,7 +262,7 @@ nav a:hover{
             </button>
           </li>
 
-          {% assign genres = site.books | map: "genre" | uniq | sort %}
+          {% assign genres = scoped_books | map: "genre" | uniq | sort %}
 
           {% for genre in genres %}
           {% if genre != "" %}
@@ -274,7 +288,7 @@ nav a:hover{
 
         {% assign all_tags = "" | split: "" %}
 
-        {% for book in site.books %}
+        {% for book in scoped_books %}
           {% assign all_tags = all_tags | concat: book.tags %}
         {% endfor %}
 
@@ -314,7 +328,7 @@ nav a:hover{
 const searchInput = document.getElementById("searchInput");
 
 let activeGenre = "";
-let activeTag = "";
+const activeTags = new Set();
 
 function filterBooks(){
 
@@ -328,7 +342,12 @@ function filterBooks(){
 
     const matchesSearch = text.includes(search);
     const matchesGenre = !activeGenre || genre.includes(activeGenre);
-    const matchesTag = !activeTag || tags.includes(activeTag);
+
+    // AND logic: a book must match every selected tag.
+    // (Swap .every for .some below if you'd rather match ANY selected tag.)
+    const matchesTag =
+      activeTags.size === 0 ||
+      [...activeTags].every(tag => tags.includes(tag));
 
     card.classList.toggle(
       "hidden",
@@ -360,10 +379,15 @@ document.querySelectorAll(".tag-btn").forEach(btn => {
 
   btn.addEventListener("click", () => {
 
-    document.querySelectorAll(".tag-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+    const tag = btn.dataset.tag;
 
-    activeTag = btn.dataset.tag;
+    if (activeTags.has(tag)) {
+      activeTags.delete(tag);
+      btn.classList.remove("active");
+    } else {
+      activeTags.add(tag);
+      btn.classList.add("active");
+    }
 
     filterBooks();
 
