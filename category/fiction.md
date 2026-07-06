@@ -2,7 +2,7 @@
 layout: catalog
 title: Fiction
 permalink: /fiction/
-category: "Fiction"
+category: fiction
 ---
 
 {% assign books = site.books | where: "category", "fiction" %}
