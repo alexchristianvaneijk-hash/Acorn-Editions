@@ -5,7 +5,7 @@ permalink: /non-fiction/
 category: non-fiction
 ---
 
-{% assign books = site.books | where: "category", "Non-fiction" %}
+{% assign books = site.books | where: "category", "nrussian literatureon-fiction" %}
 
 {% for book in books %}
 
