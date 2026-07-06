@@ -2,7 +2,7 @@
 layout: book
 title: "Immensee"
 author: "Theodor Storm"
-category: Fiction
+category: fiction
 type: novella
 genre: "Romance"
 tags:
